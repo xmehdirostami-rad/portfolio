@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zarnegar | زرنگار، تولید محتوا با هوش مصنوعی</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Vazirmatn:wght@300;500;800&display=swap">
+<style>
+:root{--bg:#0d0912;--panel:#150f1d;--gold:#e7c98f;--brass:#b98f52;--ivory:#f4f0f8;--line:rgba(231,201,143,.24);--ok:#9fd6b4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(ellipse at 80% -10%,#33204f,var(--bg) 60%);background-attachment:fixed;color:var(--ivory);font-family:'Vazirmatn',system-ui,sans-serif;min-height:100vh}
+button,textarea,input{font:inherit;color:inherit}button{cursor:pointer}button:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--ivory);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:26px 16px 70px}
+.en{font-family:'Cormorant Garamond',serif;color:var(--brass);letter-spacing:.4em;font-size:15px;margin-bottom:4px}
+h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,44px);background:linear-gradient(180deg,#fff4dc,var(--gold) 50%,var(--brass));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:6px 0 24px;font-weight:300;font-size:14px;color:rgba(244,240,248,.65)}
+.lay{display:grid;grid-template-columns:minmax(300px,400px) 1fr;gap:18px;align-items:start}
+@media(max-width:820px){.lay{grid-template-columns:1fr}}
+.pn{background:rgba(21,15,29,.8);border:1px solid var(--line);border-radius:4px;padding:18px}
+.pn h2{margin:0 0 10px;font-size:13px;font-weight:500;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+.chips button{background:transparent;border:1px solid var(--line);border-radius:20px;padding:6px 13px;font-size:12.5px;opacity:.75}
+.chips button.a{background:rgba(231,201,143,.16);border-color:var(--gold);color:var(--gold);opacity:1}
+textarea{width:100%;resize:vertical;min-height:96px;background:#0a0710;border:1px solid var(--line);border-radius:3px;padding:12px;font-size:14px;line-height:1.9;margin-bottom:16px}
+.go{width:100%;border:0;border-radius:3px;padding:14px;font-weight:500;font-size:15px;color:#2a1a08;background:linear-gradient(135deg,#f6e2b8,var(--brass));box-shadow:0 10px 30px rgba(185,143,82,.3)}
+.go:disabled{opacity:.5;cursor:default}.go.stop{background:transparent;border:1px solid var(--gold);color:var(--gold);box-shadow:none}
+.out{min-height:420px;display:flex;flex-direction:column}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.bar .m{font-size:12px;color:rgba(244,240,248,.55);font-weight:300}
+.act{display:flex;gap:6px;flex-wrap:wrap}.act button{background:transparent;border:1px solid var(--line);border-radius:3px;padding:5px 12px;font-size:12px}.act button:hover{border-color:var(--gold);color:var(--gold)}.act button:disabled{opacity:.35;cursor:default}
+#res{flex:1;font-size:15px;line-height:2.1;font-weight:300;overflow-wrap:anywhere}
+#res h2,#res h3{color:var(--gold);font-weight:500;margin:16px 0 4px;font-size:17px}#res b{font-weight:500;color:var(--gold)}
+#res hr{border:0;border-top:1px dashed var(--line);margin:18px 0}#res ul,#res ol{padding:0 22px 0 0;margin:6px 0}
+.cur{display:inline-block;width:7px;height:15px;background:var(--gold);vertical-align:middle;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.empty{display:grid;place-items:center;text-align:center;height:100%;min-height:300px;color:rgba(244,240,248,.45);font-size:14px;line-height:2;font-weight:300}
+.empty i{display:block;width:44px;height:44px;margin:0 auto 18px;transform:rotate(45deg);border:1px solid var(--gold);opacity:.6}
+.err{color:#ffb3b3;font-size:13px}
+.hs{margin-top:18px;display:grid;gap:6px}.hs button{text-align:start;background:rgba(244,240,248,.04);border:1px solid var(--line);border-radius:3px;padding:8px 12px;font-size:12px;font-weight:300;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hs button:hover{border-color:var(--gold)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="en">ZARNEGAR</div><h1>زرنگار</h1>
+ <div class="sub">استودیوی تولید محتوای هوشمند. موضوع را بنویس، نوع و لحن را انتخاب کن و محتوای آماده انتشار بگیر</div>
+ <div class="lay">
+  <div class="pn">
+   <h2>نوع محتوا</h2><div class="chips" id="ty"></div>
+   <h2>موضوع یا توضیح کوتاه</h2>
+   <textarea id="tp" placeholder="مثلاً: معرفی عطر جدید ما با رایحه چوب عود و وانیل، مخصوص مناسبت‌های ویژه"></textarea>
+   <h2>لحن</h2><div class="chips" id="tn"></div>
+   <h2>زبان خروجی</h2><div class="chips" id="lg"></div>
+   <h2>طول</h2><div class="chips" id="ln"></div>
+   <button class="go" id="go">تولید محتوا</button>
+   <div class="hs" id="hs"></div>
+  </div>
+  <div class="pn out">
+   <div class="bar"><span class="m" id="mt">آماده</span><div class="act"><button id="cp" disabled>کپی</button><button id="sh" disabled>کوتاه‌تر</button><button id="ca" disabled>جذاب‌تر</button><button id="fo" disabled>رسمی‌تر</button><button id="rg" disabled>تولید دوباره</button></div></div>
+   <div id="res"><div class="empty"><div><i></i>خروجی اینجا نمایش داده می‌شود</div></div></div>
+  </div>
+ </div>
+</div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const TY={cap:['کپشن اینستاگرام','Write 3 distinct Instagram caption variations separated by a line with ---. Start each with a strong hook, use emojis sparingly, end each with a call to action and 5 relevant hashtags.'],blog:['مقاله وبلاگ','Write a blog article: a compelling title (as # heading), a short intro, 3 to 4 sections with ## headings, and a closing paragraph with a call to action.'],prod:['توضیح محصول','Write a product description: a punchy headline, two persuasive paragraphs, and 4 benefit bullets starting with "-".'],ad:['متن تبلیغ','Write ad copy: 5 short headline options as a list, then 2 body-copy variations separated by ---, each ending with a clear call to action.'],mail:['ایمیل بازاریابی','Write a marketing email: 3 subject line options, a preheader, a warm body, and one clear call-to-action button text.'],reel:['اسکریپت ریلز','Write a short-video script: a hook for the first 3 seconds, numbered scenes with timing, on-screen text for each scene, and a final call to action.']};
+const TN={lux:['لوکس','refined, elegant and understated luxury'],fr:['دوستانه','warm, friendly and conversational'],pro:['حرفه‌ای','professional, clear and credible'],fun:['شوخ‌طبع','playful, witty and light-hearted'],ins:['الهام‌بخش','inspiring, emotional and motivating']};
+const LG={fa:['فارسی','Persian'],en:['English','English']};
+const LN={s:['کوتاه','short (about 80 words)'],m:['متوسط','medium (about 200 words)'],l:['بلند','long (about 450 words)']};
+let st={ty:'cap',tn:'lux',lg:'fa',ln:'m'},busy=false,ac=null,last='',hist=[];
+try{hist=JSON.parse(localStorage.getItem('aurum-studio')||'[]')}catch(e){}
+function chips(id,D,key){const e=$(id);e.innerHTML='';Object.keys(D).forEach(k=>{const b=document.createElement('button');b.textContent=D[k][0];b.className=st[key]===k?'a':'';b.onclick=()=>{st[key]=k;[...e.children].forEach(c=>c.classList.toggle('a',c===b))};e.appendChild(b)})}
+chips('ty',TY,'ty');chips('tn',TN,'tn');chips('lg',LG,'lg');chips('ln',LN,'ln');
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function md(s){s=esc(s).replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>').replace(/^#{3,} (.+)$/gm,'<h3>$1</h3>').replace(/^#{1,2} (.+)$/gm,'<h2>$1</h2>').replace(/^-{3,}$/gm,'<hr>');
+ s=s.replace(/^(?:[-*] .+(?:\n|$))+/gm,m=>'<ul>'+m.trim().split('\n').map(x=>'<li>'+x.slice(2)+'</li>').join('')+'</ul>');
+ s=s.replace(/^(?:\d+[.)] .+(?:\n|$))+/gm,m=>'<ol>'+m.trim().split('\n').map(x=>'<li>'+x.replace(/^\d+[.)] /,'')+'</li>').join('')+'</ol>');
+ return s.replace(/(<\/(?:ul|ol|h2|h3)>|<hr>)\n/g,'$1').replace(/\n{2,}/g,'<br><br>').replace(/\n/g,'<br>')}
+function setBtns(on){['cp','sh','ca','fo','rg'].forEach(i=>$(i).disabled=!on)}
+function stat(t){const w=t.trim().split(/\s+/).filter(Boolean).length;$('mt').textContent=`${w.toLocaleString('fa-IR')} کلمه · ${Math.max(1,Math.round(w/200)).toLocaleString('fa-IR')} دقیقه مطالعه`}
+function drawHist(){const h=$('hs');h.innerHTML=hist.length?'<h2 style="margin:14px 0 4px;font-size:13px;font-weight:500;color:var(--gold)">آخرین تولیدها</h2>':'';hist.forEach(x=>{const b=document.createElement('button');b.textContent=TY[x.ty][0]+' · '+x.topic;b.onclick=()=>{last=x.text;show(x.text);setBtns(true);stat(x.text)};h.appendChild(b)})}
+drawHist();
+function show(t,live){$('res').dir=/[\u0600-\u06FF]/.test(t.slice(0,60))?'rtl':'ltr';$('res').innerHTML=md(t)+(live?'<span class="cur"></span>':'')}
+async function run(prompt,topic,isNew){
+ if(busy)return;busy=true;setBtns(false);$('go').textContent='توقف';$('go').classList.add('stop');$('mt').textContent='در حال نوشتن…';
+ ac=new AbortController();let acc='';
+ try{
+  const sample=window.claude&&await window.claude.use('sample');if(!sample)throw {code:'none'};
+  const r=await sample(prompt,{cache:false,signal:ac.signal,onText:({text})=>{acc=text;show(text,true)}});acc=r.text||acc;
+ }catch(e){
+  if(e&&e.text)acc=e.text;
+  if(!acc){const m={none:'این نمونه فقط داخل claude.ai فعال است.',not_granted:'برای تولید محتوا باید اجازه دسترسی را تأیید کنی.',rate_limited:'تعداد درخواست‌ها زیاد است. کمی بعد دوباره امتحان کن.'}[e&&e.code];
+   if(!(e&&e.code==='cancelled'))$('res').innerHTML=`<span class="err">${m||'تولید محتوا انجام نشد. دوباره تلاش کن.'}</span>`;
+   $('mt').textContent='آماده';busy=false;$('go').textContent='تولید محتوا';$('go').classList.remove('stop');if(last)setBtns(true);return}}
+ last=acc;show(acc);stat(acc);setBtns(true);
+ if(isNew){hist.unshift({ty:st.ty,topic:topic.slice(0,40),text:acc});hist=hist.slice(0,6);try{localStorage.setItem('aurum-studio',JSON.stringify(hist))}catch(e){}drawHist()}
+ busy=false;ac=null;$('go').textContent='تولید محتوا';$('go').classList.remove('stop')}
+function build(){const tp=$('tp').value.trim();if(!tp){$('tp').focus();return null}
+ return {topic:tp,p:`You are a senior copywriter at a luxury creative agency. ${TY[st.ty][1]} Tone: ${TN[st.tn][1]}. Length: ${LN[st.ln][1]}. Write in ${LG[st.lg][1]}. Be specific and vivid, avoid clichés and filler, and output only the content itself with no preface or explanation.\n\nTopic / brief:\n${tp}`}}
+$('go').onclick=()=>{if(busy){ac&&ac.abort();return}const b=build();if(b)run(b.p,b.topic,true)};
+$('rg').onclick=()=>{const b=build();if(b)run(b.p,b.topic,false)};
+function refine(how){return()=>{if(!last)return;run(`Rewrite the following content ${how}. Keep the same language, structure and format. Output only the rewritten content.\n\n${last}`,'',false)}}
+$('sh').onclick=refine('to be about 40% shorter while keeping the key message');$('ca').onclick=refine('to be more engaging and attention-grabbing, with a stronger hook');$('fo').onclick=refine('in a more formal and professional register');
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText(last);$('cp').textContent='کپی شد'}catch(e){$('cp').textContent='کپی نشد'}setTimeout(()=>$('cp').textContent='کپی',1500)};
+})();
+</script>
+</body>
+</html>

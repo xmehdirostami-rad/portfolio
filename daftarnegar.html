@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>دفترنگار | دفتر روزنامه، تراز آزمایشی و صورت سود و زیان آنلاین</title>
+<meta name="description" content="ثبت اسناد حسابداری دوطرفه، محاسبه خودکار تراز آزمایشی، سود و زیان و معادله حسابداری. مناسب دانشجویان، کسب‌وکارهای کوچک و آموزش حسابداری. بدون ثبت‌نام.">
+<meta property="og:title" content="دفترنگار | حسابداری دوطرفه آنلاین">
+<meta property="og:description" content="دفتر روزنامه، تراز آزمایشی و صورت سود و زیان در چند ثانیه.">
+<meta property="og:type" content="website"><meta property="og:locale" content="fa_IR">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"دفترنگار","applicationCategory":"BusinessApplication","inLanguage":"fa","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IRR"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"تراز آزمایشی چیست؟","acceptedAnswer":{"@type":"Answer","text":"فهرستی از مانده همه حساب‌هاست که جمع ستون بدهکار آن باید با جمع ستون بستانکار برابر باشد."}},{"@type":"Question","name":"اطلاعات من امن است؟","acceptedAnswer":{"@type":"Answer","text":"داده‌ها فقط در مرورگر شما ذخیره می‌شود و به سرور ارسال نمی‌شود."}}]}</script>
+<style>
+:root{--bg:#f2f4f8;--fg:#0e1a33;--mut:#5b6785;--line:#d9dfec;--acc:#1b3a78;--gold:#a67c2e;--card:#fff;--on:#fff;--ok:#18794e;--bad:#b42318;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070d1c;--fg:#e8edf8;--mut:#93a0be;--line:#1c2845;--acc:#7ea6ff;--gold:#d9b45c;--card:#0d1730;--on:#06102a;--ok:#4ade9a;--bad:#ff8a80}}
+:root[data-theme="dark"]{--bg:#070d1c;--fg:#e8edf8;--mut:#93a0be;--line:#1c2845;--acc:#7ea6ff;--gold:#d9b45c;--card:#0d1730;--on:#06102a;--ok:#4ade9a;--bad:#ff8a80}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 16px/1.9 Vazirmatn,Tahoma,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+.w{max-width:1080px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px}
+.logo{font-weight:700;font-size:1.35rem;color:var(--gold);display:flex;align-items:center;gap:8px}
+.logo svg{width:26px;height:26px}
+.badge{font-size:.8rem;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:2px 14px;background:var(--card)}
+h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:300;line-height:1.35;margin:18px 0 8px}
+h1 b{font-weight:700;color:var(--acc)}
+.sub{margin:0 0 24px;color:var(--mut);max-width:40em}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:20px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;border-top:3px solid var(--gold)}
+.kpi small{color:var(--mut);font-size:.82rem}
+.kpi b{display:block;font-size:1.45rem;font-weight:700;font-variant-numeric:tabular-nums;line-height:1.5}
+.kpi b.neg{color:var(--bad)}.kpi b.pos{color:var(--ok)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}
+h2{font-size:1.25rem;font-weight:500;margin:0 0 14px}
+form{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;align-items:end}
+label{font-size:.82rem;color:var(--mut);display:block}
+input,select{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-top:2px}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.btn{font:inherit;cursor:pointer;background:var(--acc);color:var(--on);border:0;border-radius:10px;padding:10px 20px;font-weight:700;transition:.2s}
+.btn:hover{filter:brightness(1.1)}
+#err{color:var(--bad);font-size:.85rem;min-height:1.5em;margin:6px 0 0}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:20px}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 8px;border-bottom:1px solid var(--line);text-align:start;white-space:nowrap}
+th{color:var(--mut);font-weight:500;font-size:.8rem}
+td.n,th.n{text-align:end}
+tfoot td{font-weight:700;border-top:2px solid var(--gold);border-bottom:0}
+.x{background:none;border:0;color:var(--mut);cursor:pointer;font-size:1.1rem}.x:hover{color:var(--bad)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.row.t{font-weight:700;border-bottom:2px solid var(--gold)}
+.ok,.warn{display:inline-block;margin-top:12px;font-size:.85rem;padding:2px 14px;border-radius:999px}
+.ok{background:color-mix(in srgb,var(--ok) 15%,transparent);color:var(--ok)}
+.warn{background:color-mix(in srgb,var(--bad) 15%,transparent);color:var(--bad)}
+.faq details{border-top:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:500}.faq p{margin:8px 0 0;color:var(--mut)}
+.trust{display:flex;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:.85rem;padding:0 0 24px}
+.trust span::before{content:"✓ ";color:var(--ok);font-weight:700}
+footer{border-top:1px solid var(--line);padding:20px 0 36px;color:var(--mut);font-size:.8rem;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+footer button{background:none;border:0;color:var(--mut);text-decoration:underline;font:inherit;cursor:pointer;padding:0}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="top"><div class="logo"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="5" width="26" height="30" rx="3"/><path d="M13 14 H27 M13 21 H27 M13 28 H22"/></svg>دفترنگار</div><span class="badge">🔒 داده‌ها فقط روی دستگاه شما</span></header>
+<h1>حسابداری <b>دقیق</b>، بدون پیچیدگی</h1>
+<p class="sub">هر سند را یک‌بار ثبت کنید؛ تراز آزمایشی، سود و زیان و معادله حسابداری خودکار محاسبه می‌شود. مناسب آموزش و کسب‌وکارهای کوچک.</p>
+
+<section class="kpis" aria-live="polite">
+<div class="kpi"><small>جمع دارایی‌ها</small><b id="kA">۰</b></div>
+<div class="kpi"><small>جمع بدهی‌ها</small><b id="kL">۰</b></div>
+<div class="kpi"><small>سود (زیان) خالص</small><b id="kP">۰</b></div>
+<div class="kpi"><small>تعداد اسناد</small><b id="kN">۰</b></div>
+</section>
+
+<main>
+<section class="panel"><h2>ثبت سند حسابداری</h2>
+<form id="f">
+<label>تاریخ<input id="d" value="۱۴۰۵/۰۷/۱۵" required></label>
+<label>شرح<input id="t" placeholder="مثلاً: فروش نقدی" required></label>
+<label>حساب بدهکار<select id="dr"></select></label>
+<label>حساب بستانکار<select id="cr"></select></label>
+<label>مبلغ (تومان)<input id="a" inputmode="numeric" placeholder="۱٬۰۰۰٬۰۰۰" required></label>
+<button class="btn" type="submit">ثبت سند</button>
+</form><p id="err" role="alert"></p></section>
+
+<div class="cols">
+<section class="panel"><h2>دفتر روزنامه</h2><div class="scroll"><table><thead><tr><th>تاریخ</th><th>شرح</th><th>بدهکار</th><th>بستانکار</th><th class="n">مبلغ</th><th></th></tr></thead><tbody id="j"></tbody></table></div></section>
+<section class="panel"><h2>صورت سود و زیان</h2><div id="is"></div><div id="eq"></div></section>
+</div>
+
+<section class="panel"><h2>تراز آزمایشی</h2><div class="scroll"><table><thead><tr><th>حساب</th><th class="n">بدهکار</th><th class="n">بستانکار</th></tr></thead><tbody id="tb"></tbody><tfoot id="tf"></tfoot></table></div></section>
+
+<section class="panel faq"><h2>پرسش‌های متداول</h2>
+<details><summary>تراز آزمایشی چیست؟</summary><p>فهرست مانده همه حساب‌هاست. در حسابداری دوطرفه جمع ستون بدهکار باید دقیقاً با جمع ستون بستانکار برابر باشد.</p></details>
+<details><summary>معادله حسابداری چیست؟</summary><p>دارایی‌ها = بدهی‌ها + سرمایه + سود انباشته. اگر این تساوی برقرار نباشد، جایی اشتباه ثبت شده است.</p></details>
+<details><summary>اطلاعات من امن است؟</summary><p>همه چیز فقط در مرورگر شما ذخیره می‌شود و هیچ داده‌ای ارسال نمی‌شود. این ابزار آموزشی است و جایگزین نرم‌افزار حسابداری رسمی نیست.</p></details></section>
+</main>
+<div class="trust"><span>بدون ثبت‌نام</span><span>محاسبه با دقت عددی کامل</span><span>مناسب آموزش حسابداری</span></div>
+<footer><span>© ۲۰۲۶ دفترنگار · نمونه طراحی</span><button id="reset">بازگشت به داده‌های نمونه</button></footer>
+</div>
+
+<script>
+const AC=[["cash","صندوق","A"],["bank","بانک","A"],["ar","حساب‌های دریافتنی","A"],["inv","موجودی کالا","A"],["fa","تجهیزات","A"],["ap","حساب‌های پرداختنی","L"],["loan","وام بانکی","L"],["cap","سرمایه","E"],["sales","فروش","R"],["cogs","بهای تمام‌شده کالا","X"],["sal","حقوق و دستمزد","X"],["rent","اجاره","X"],["ads","تبلیغات","X"]];
+const SEED=[["۱۴۰۵/۰۷/۰۱","سرمایه‌گذاری اولیه","bank","cap",500e6],["۱۴۰۵/۰۷/۰۳","خرید تجهیزات","fa","bank",120e6],["۱۴۰۵/۰۷/۰۵","خرید کالا (نسیه)","inv","ap",150e6],["۱۴۰۵/۰۷/۱۰","فروش نقدی","cash","sales",85e6],["۱۴۰۵/۰۷/۱۰","بهای تمام‌شده کالای فروخته‌شده","cogs","inv",50e6],["۱۴۰۵/۰۷/۱۲","پرداخت اجاره","rent","bank",12e6],["۱۴۰۵/۰۷/۱۴","پرداخت حقوق","sal","cash",20e6]];
+const K="dn_v1",$=id=>document.getElementById(id),fa=n=>Number(n).toLocaleString("fa-IR");
+const S={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const name=id=>AC.find(a=>a[0]===id)[1];
+const norm=s=>s.replace(/[۰-۹]/g,c=>"۰۱۲۳۴۵۶۷۸۹".indexOf(c)).replace(/[٠-٩]/g,c=>"٠١٢٣٤٥٦٧٨٩".indexOf(c)).replace(/[,٬،\s]/g,"");
+let E=S.get(K,SEED);
+const opt=AC.map(a=>`<option value="${a[0]}">${a[1]}</option>`).join("");
+$("dr").innerHTML=opt;$("cr").innerHTML=opt;$("cr").value="bank";
+function calc(){const b={};AC.forEach(a=>b[a[0]]={d:0,c:0});E.forEach(e=>{b[e[2]].d+=e[4];b[e[3]].c+=e[4]});return b}
+function render(){const b=calc(),sum=(t,s)=>AC.filter(a=>a[2]===t).reduce((x,a)=>x+s*(b[a[0]].d-b[a[0]].c),0);
+ const A=sum("A",1),L=sum("L",-1),Q=sum("E",-1),R=sum("R",-1),X=sum("X",1),P=R-X;
+ $("kA").textContent=fa(A);$("kL").textContent=fa(L);$("kN").textContent=fa(E.length);
+ $("kP").textContent=fa(P);$("kP").className=P<0?"neg":"pos";
+ $("j").innerHTML=E.map((e,i)=>`<tr><td>${e[0]}</td><td>${e[1].replace(/</g,"&lt;")}</td><td>${name(e[2])}</td><td>${name(e[3])}</td><td class="n">${fa(e[4])}</td><td><button class="x" data-i="${i}" aria-label="حذف سند">×</button></td></tr>`).join("")||`<tr><td colspan="6">هنوز سندی ثبت نشده است.</td></tr>`;
+ let td=0,tc=0;
+ $("tb").innerHTML=AC.filter(a=>b[a[0]].d||b[a[0]].c).map(a=>{const n=b[a[0]].d-b[a[0]].c;if(n>=0)td+=n;else tc-=n;
+  return `<tr><td>${a[1]}</td><td class="n">${n>0?fa(n):"—"}</td><td class="n">${n<0?fa(-n):"—"}</td></tr>`}).join("");
+ $("tf").innerHTML=`<tr><td>جمع</td><td class="n">${fa(td)}</td><td class="n">${fa(tc)}</td></tr>`;
+ $("is").innerHTML=`<div class="row"><span>درآمد فروش</span><b>${fa(R)}</b></div><div class="row"><span>جمع هزینه‌ها</span><b>${fa(X)}</b></div><div class="row t"><span>${P<0?"زیان خالص":"سود خالص"}</span><b>${fa(Math.abs(P))}</b></div>`;
+ const ok=Math.abs(A-(L+Q+P))<0.5&&td===tc;
+ $("eq").innerHTML=`<div class="row"><span>بدهی‌ها + سرمایه + سود</span><b>${fa(L+Q+P)}</b></div><span class="${ok?"ok":"warn"}">${ok?"✓ معادله حسابداری و تراز برقرار است":"تراز برقرار نیست"}</span>`}
+$("f").addEventListener("submit",ev=>{ev.preventDefault();const a=Number(norm($("a").value)),dr=$("dr").value,cr=$("cr").value;
+ $("err").textContent="";
+ if(dr===cr)return $("err").textContent="حساب بدهکار و بستانکار نباید یکسان باشد.";
+ if(!Number.isFinite(a)||a<=0||!Number.isInteger(a))return $("err").textContent="مبلغ را به‌صورت عدد صحیح و بزرگ‌تر از صفر وارد کنید.";
+ E.push([$("d").value.trim(),$("t").value.trim(),dr,cr,a]);S.set(K,E);$("t").value="";$("a").value="";render()});
+$("j").addEventListener("click",ev=>{const i=ev.target.dataset&&ev.target.dataset.i;if(i!==undefined){E.splice(+i,1);S.set(K,E);render()}});
+$("reset").addEventListener("click",()=>{E=SEED.map(e=>e.slice());S.set(K,E);render()});
+render();
+</script>
+</body>
+</html>

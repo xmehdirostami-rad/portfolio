@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurum Flow | اتوماسیون هوشمند فروش</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Vazirmatn:wght@300;500;800&display=swap">
+<style>
+:root{--bg:#06100d;--bg2:#0b1c17;--gold:#e8d5a3;--brass:#b8924a;--ivory:#f4efe4;--wine:#9a2040;--ok:#7fd1a8;--line:rgba(232,213,163,.22);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(ellipse at 70% -10%,#12332a,var(--bg) 60%);color:var(--ivory);font-family:'Vazirmatn',system-ui,sans-serif;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 70px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);background:linear-gradient(180deg,#fff6dc,var(--gold) 50%,var(--brass));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-weight:300;color:rgba(244,239,228,.65);margin-top:6px;font-size:14px}
+.en{font-family:'Cormorant Garamond',serif;color:var(--brass);letter-spacing:.4em;font-size:15px;margin-bottom:4px}
+.ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.seg button{font:inherit;font-size:13px;color:var(--ivory);background:transparent;border:0;padding:10px 16px;cursor:pointer;opacity:.65}
+.seg button.a{background:rgba(232,213,163,.14);opacity:1;color:var(--gold)}
+.btn{font:inherit;font-weight:500;font-size:15px;color:#1a1305;border:0;padding:11px 28px;border-radius:2px;cursor:pointer;background:linear-gradient(135deg,#f6e7bd,var(--brass));box-shadow:0 8px 28px rgba(184,146,74,.35);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}.btn:disabled{opacity:.5;cursor:default;transform:none}
+button:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.lead{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:18px;background:rgba(244,239,228,.04);font-size:14px;line-height:2;font-weight:300}
+.lead b{font-weight:500;color:var(--gold)}
+.boardwrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:linear-gradient(rgba(6,16,13,.55),rgba(6,16,13,.55)),repeating-linear-gradient(0deg,transparent 0 39px,rgba(232,213,163,.05) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(232,213,163,.05) 39px 40px)}
+.board{position:relative;width:960px;height:400px;margin:0 auto;direction:ltr}
+svg{position:absolute;inset:0;pointer-events:none}
+.e{fill:none;stroke:rgba(232,213,163,.2);stroke-width:1.5}
+.ef{fill:none;stroke:var(--gold);stroke-width:2.5;filter:drop-shadow(0 0 6px var(--gold));stroke-linecap:round}
+.n{position:absolute;width:150px;height:82px;border:1px solid var(--line);border-radius:3px;background:linear-gradient(160deg,#0f2a22,#08150f);padding:10px 12px;direction:rtl;transition:.4s;display:flex;gap:10px;align-items:center}
+.n .g{flex:none;width:34px;height:34px;transform:rotate(45deg);border:1px solid var(--brass);display:grid;place-items:center;margin:0 3px}
+.n .g i{transform:rotate(-45deg);font-style:normal;font-size:14px;color:var(--gold)}
+.n .t{font-size:13px;font-weight:500;line-height:1.5}.n .s{font-size:11px;font-weight:300;color:rgba(244,239,228,.55);margin-top:2px}
+.n.run{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 34px rgba(232,213,163,.35)}
+.n.done{border-color:var(--ok);box-shadow:0 0 18px rgba(127,209,168,.2)}
+.n.done .g{border-color:var(--ok)}.n.done .g i{color:var(--ok)}
+.n.skip{opacity:.3}
+.n .d{position:absolute;top:-9px;left:10px;background:var(--bg);border:1px solid var(--ok);color:var(--ok);font-size:10px;padding:1px 7px;border-radius:9px;opacity:0;transition:.3s;direction:ltr;font-family:'Cormorant Garamond',serif;font-weight:700}
+.n.done .d{opacity:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{border:1px solid var(--line);border-radius:3px;padding:14px 16px;background:rgba(244,239,228,.04)}
+.stat .v{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--gold);line-height:1.1}
+.stat .l{font-size:12px;color:rgba(244,239,228,.6);font-weight:300;margin-top:4px}
+h2{font-size:18px;font-weight:500;margin:30px 0 14px;color:var(--gold)}
+.tl{display:grid;gap:14px}
+.card{border:1px solid var(--line);border-right:3px solid var(--brass);border-radius:3px;padding:16px 18px;background:rgba(244,239,228,.04);animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card h3{margin:0 0 10px;font-size:14px;font-weight:500;display:flex;justify-content:space-between;gap:10px}
+.card h3 span{font-family:'Cormorant Garamond',serif;color:var(--ok);font-size:14px;direction:ltr}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:13px;font-weight:300}
+.kv dt{color:rgba(244,239,228,.55)}.kv dd{margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.chip{font-size:12px;border:1px solid var(--line);padding:3px 12px;border-radius:20px}
+.chip.hot{border-color:var(--wine);background:rgba(154,32,64,.25);color:#ffc7d3}
+.ring{--p:0;width:78px;height:78px;border-radius:50%;background:conic-gradient(var(--gold) calc(var(--p)*1%),rgba(232,213,163,.12) 0);display:grid;place-items:center;flex:none}
+.ring b{width:62px;height:62px;border-radius:50%;background:#0a1a14;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold)}
+.row{display:flex;gap:18px;align-items:center}
+.tg{background:#12302a;border-radius:12px 12px 12px 2px;padding:12px 14px;font-size:13px;line-height:1.9;max-width:380px;border:1px solid rgba(127,209,168,.25)}
+.mail{border:1px solid var(--line);border-radius:3px;background:#f4efe4;color:#1a1a14;font-size:13px;line-height:2;overflow:hidden}
+.mail .h{background:#e6dcc0;padding:8px 14px;font-size:12px;color:#4a3d1c}
+.mail .b{padding:12px 16px}
+.seq{list-style:none;margin:0;padding:0;font-size:13px;display:grid;gap:8px}
+.seq li{display:flex;gap:12px;align-items:center}.seq em{font-style:normal;font-family:'Cormorant Garamond',serif;color:var(--brass);font-weight:700;min-width:62px;direction:ltr;text-align:left}
+details{margin-top:28px}summary{cursor:pointer;color:var(--brass);font-size:13px}
+pre{direction:ltr;text-align:left;background:#040b08;border:1px solid var(--line);padding:14px;font-size:12px;overflow:auto;color:#cfe3d8;line-height:1.7;border-radius:3px}
+.empty{border:1px dashed var(--line);border-radius:3px;padding:30px;text-align:center;font-weight:300;color:rgba(244,239,228,.55);font-size:14px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><div class="en">AURUM FLOW</div><h1>اتوماسیون هوشمند فروش</h1><div class="sub">از لحظه ثبت فرم تا پیگیری خودکار، بدون دخالت دست</div></div>
+  <div class="ctrl">
+    <div class="seg" role="group" aria-label="انتخاب سرنخ"><button class="a" id="b1">سرنخ داغ</button><button id="b2">سرنخ سرد</button></div>
+    <button class="btn" id="run">اجرای اتوماسیون</button>
+  </div>
+</header>
+<div class="lead" id="lead"></div>
+<div class="boardwrap"><div class="board" id="board"><svg id="svg" width="960" height="400"></svg></div></div>
+<div class="stats">
+  <div class="stat"><div class="v" id="s1">۰</div><div class="l">مرحله اجراشده</div></div>
+  <div class="stat"><div class="v" id="s2">۰</div><div class="l">زمان کل (ثانیه)</div></div>
+  <div class="stat"><div class="v" id="s3">۰</div><div class="l">دقیقه کار دستی حذف‌شده</div></div>
+  <div class="stat"><div class="v" id="s4">—</div><div class="l">مسیر انتخاب‌شده</div></div>
+</div>
+<h2>خروجی هر مرحله</h2>
+<div class="tl" id="tl"><div class="empty">دکمه «اجرای اتوماسیون» را بزن تا خروجی هر مرحله به‌صورت زنده نمایش داده شود.</div></div>
+<details><summary>نمایش داده خام (JSON) آخرین اجرا</summary><pre id="raw">{}</pre></details>
+</div>
+<script>
+(function(){
+const fa=n=>Number(n).toLocaleString('fa-IR');const $=id=>document.getElementById(id);
+const LEADS={
+hot:{name:'مریم احمدی',co:'آکادمی نوین',phone:'۰۹۱۲ ۱۲۳ ۴۵۶۷',msg:'برای ۴۰ نفر از همکارانمون پلتفرم آموزشی اختصاصی می‌خوایم. بودجه حدود ۲۰۰ میلیون تومنه و می‌خوایم تا هفته آینده شروع کنیم.',score:91,intent:'خرید مستقیم',urg:'فوری',budget:'۲۰۰ میلیون تومان',route:'hot'},
+cold:{name:'کیان رستمی',co:'—',phone:'۰۹۳۵ ۷۶۵ ۴۳۲۱',msg:'سلام، فقط داشتم تعرفه‌ها رو نگاه می‌کردم. شاید چند ماه دیگه.',score:34,intent:'اطلاعات‌گیری',urg:'کم',budget:'نامشخص',route:'cold'}};
+const N=[
+{id:'wh',x:20,y:159,g:'⚡',t:'ثبت فرم سایت',s:'Webhook'},
+{id:'ai',x:200,y:159,g:'✦',t:'تحلیل پیام با AI',s:'Claude'},
+{id:'sc',x:380,y:159,g:'◈',t:'امتیازدهی سرنخ',s:'Scoring'},
+{id:'rt',x:560,y:159,g:'⑂',t:'تصمیم‌گیری',s:'امتیاز ≥ ۷۰ ؟'},
+{id:'tg',x:790,y:30,g:'➤',t:'اعلان به فروش',s:'Telegram',h:1},
+{id:'ml',x:790,y:159,g:'✉',t:'ایمیل پیشنهاد',s:'Email',h:1},
+{id:'nu',x:790,y:288,g:'↻',t:'پرورش سرنخ',s:'Drip Campaign',c:1}];
+const E=[['wh','ai'],['ai','sc'],['sc','rt'],['rt','tg'],['rt','ml'],['rt','nu']];
+const board=$('board'),svg=$('svg'),el={},ed={};
+N.forEach(n=>{const d=document.createElement('div');d.className='n';d.style.cssText=`left:${n.x}px;top:${n.y}px`;
+d.innerHTML=`<div class="g"><i>${n.g}</i></div><div><div class="t">${n.t}</div><div class="s">${n.s}</div></div><span class="d"></span>`;board.appendChild(d);el[n.id]=d});
+const NS='http://www.w3.org/2000/svg';
+E.forEach(([a,b])=>{const A=N.find(n=>n.id===a),B=N.find(n=>n.id===b);
+const x1=A.x+150,y1=A.y+41,x2=B.x,y2=B.y+41,m=(x1+x2)/2;
+const dd=`M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}`;
+const p=document.createElementNS(NS,'path');p.setAttribute('d',dd);p.setAttribute('class','e');svg.appendChild(p);
+const f=document.createElementNS(NS,'path');f.setAttribute('d',dd);f.setAttribute('class','ef');const L=f.getTotalLength?0:0;svg.appendChild(f);
+ed[a+b]=f;f.style.strokeDasharray='1000';f.style.strokeDashoffset='1000'});
+requestAnimationFrame(()=>Object.values(ed).forEach(f=>{const L=f.getTotalLength();f.style.strokeDasharray=L;f.style.strokeDashoffset=L;f.style.transition='stroke-dashoffset .7s ease'}));
+let cur='hot',busy=false,last={};
+function showLead(){const l=LEADS[cur];$('lead').innerHTML=`<b>سرنخ ورودی:</b> ${l.name} · ${l.co} · ${l.phone}<br>«${l.msg}»`}
+function pick(k){if(busy)return;cur=k;$('b1').classList.toggle('a',k==='hot');$('b2').classList.toggle('a',k==='cold');showLead()}
+$('b1').onclick=()=>pick('hot');$('b2').onclick=()=>pick('cold');showLead();
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+function reset(){Object.values(el).forEach(e=>e.className='n');Object.values(ed).forEach(f=>f.style.strokeDashoffset=f.getTotalLength());$('tl').innerHTML='';['s1','s2','s3'].forEach(i=>$(i).textContent='۰');$('s4').textContent='—'}
+function card(title,time,html){const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${title}<span>${time}s</span></h3>${html}`;$('tl').appendChild(c);c.scrollIntoView({behavior:'smooth',block:'nearest'})}
+async function step(id,from,ms,title,html){
+  if(from)ed[from+id].style.strokeDashoffset=0;
+  if(from)await sleep(550);
+  el[id].classList.add('run');await sleep(ms);
+  el[id].classList.remove('run');el[id].classList.add('done');
+  const t=(ms/1000+.2).toFixed(1);el[id].querySelector('.d').textContent=t+'s';
+  card(title,t,html);total+=ms/1000+.2;cnt++;$('s1').textContent=fa(cnt);$('s2').textContent=fa(total.toFixed(1));
+}
+let total=0,cnt=0;
+async function run(){
+  if(busy)return;busy=true;$('run').disabled=true;reset();total=0;cnt=0;
+  const l=LEADS[cur],hot=l.route==='hot';
+  await step('wh',null,700,'ثبت فرم سایت',`<dl class="kv"><dt>نام</dt><dd>${l.name}</dd><dt>شرکت</dt><dd>${l.co}</dd><dt>تلفن</dt><dd>${l.phone}</dd><dt>پیام</dt><dd>${l.msg}</dd></dl>`);
+  await step('ai','wh',1300,'تحلیل پیام با هوش مصنوعی',`<div class="chips"><span class="chip ${hot?'hot':''}">قصد: ${l.intent}</span><span class="chip ${hot?'hot':''}">فوریت: ${l.urg}</span><span class="chip">بودجه: ${l.budget}</span></div>`);
+  await step('sc','ai',900,'امتیازدهی',`<div class="row"><div class="ring" style="--p:${l.score}"><b>${fa(l.score)}</b></div><div style="font-size:13px;font-weight:300;line-height:2">امتیاز از ۱۰۰ بر پایه قصد خرید، فوریت و بودجه.<br>آستانه سرنخ داغ: ${fa(70)}</div></div>`);
+  await step('rt','sc',700,'تصمیم‌گیری',`<div class="chips"><span class="chip ${hot?'hot':''}">${hot?'مسیر سرنخ داغ فعال شد':'مسیر پرورش فعال شد'}</span></div>`);
+  $('s4').textContent=hot?'داغ':'سرد';$('s4').style.fontFamily='Vazirmatn';$('s4').style.fontSize='26px';
+  if(hot){
+    el.nu.classList.add('skip');
+    ed.rttg.style.strokeDashoffset=0;ed.rtml.style.strokeDashoffset=0;await sleep(550);
+    await Promise.all([
+      (async()=>{el.tg.classList.add('run');await sleep(900);el.tg.classList.replace('run','done');el.tg.querySelector('.d').textContent='0.9s';card('اعلان تلگرام به تیم فروش','0.9',`<div class="tg">🔥 <b>سرنخ داغ جدید</b><br>${l.name} · ${l.co}<br>امتیاز ${fa(l.score)} · بودجه ${l.budget}<br>پیشنهاد: تماس تا ۱۵ دقیقه آینده</div>`);cnt++;total+=1.1;$('s1').textContent=fa(cnt)})(),
+      (async()=>{el.ml.classList.add('run');await sleep(1300);el.ml.classList.replace('run','done');el.ml.querySelector('.d').textContent='1.3s';card('ایمیل شخصی‌سازی‌شده','1.3',`<div class="mail"><div class="h">به: ${l.name} · موضوع: پیشنهاد ویژه پلتفرم آموزشی برای ۴۰ نفر</div><div class="b">${l.name} عزیز، سلام.<br>ممنون که پیام دادید. برای تیم ۴۰ نفره شما یک پیشنهاد اختصاصی آماده کرده‌ایم و کارشناس ما تا ۱۵ دقیقه دیگر تماس می‌گیرد.</div></div>`);cnt++;total+=1.5;$('s1').textContent=fa(cnt);$('s2').textContent=fa(total.toFixed(1))})()]);
+  }else{
+    el.tg.classList.add('skip');el.ml.classList.add('skip');
+    await step('nu','rt',1000,'کمپین پرورش سرنخ',`<ul class="seq"><li><em>روز ۰</em>ایمیل خوشامد و راهنمای تعرفه</li><li><em>روز ۳</em>نمونه‌کار و داستان موفقیت مشتری</li><li><em>روز ۱۰</em>دعوت به وبینار رایگان</li><li><em>روز ۳۰</em>بررسی دوباره امتیاز سرنخ</li></ul>`);
+  }
+  $('s3').textContent=fa(hot?18:7);
+  last={lead:{name:l.name,company:l.co,message:l.msg},ai:{intent:l.intent,urgency:l.urg,budget:l.budget},score:l.score,route:l.route,actions:hot?['telegram.notify_sales','email.send_offer']:['drip.enroll_30d']};
+  $('raw').textContent=JSON.stringify(last,null,2);
+  busy=false;$('run').disabled=false;$('run').textContent='اجرای دوباره';
+}
+$('run').onclick=run;
+})();
+</script>
+</body>
+</html>

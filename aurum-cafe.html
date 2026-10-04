@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurum Café | منوی هوشمند</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Vazirmatn:wght@300;500;800&display=swap">
+<style>
+:root{--bg:#120d0a;--card:#1c1511;--cream:#f4ebdd;--cara:#d09a62;--sage:#9bb89a;--red:#d27a68;--line:rgba(208,154,98,.25);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(ellipse at 50% -10%,#2b1d14,var(--bg) 60%);background-attachment:fixed;color:var(--cream);font-family:'Vazirmatn',system-ui,sans-serif;min-height:100vh}
+button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--cream);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 90px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;background:rgba(18,13,10,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.logo{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:23px;color:var(--cara);letter-spacing:.12em;direction:ltr}
+.hb{display:flex;gap:8px;align-items:center}
+.pill{background:transparent;border:1px solid var(--line);border-radius:20px;padding:6px 14px;font-size:13px}
+.pill.cart{background:linear-gradient(135deg,#e6b987,var(--cara));color:#1a0f08;border:0;font-weight:500}
+.hero{padding:26px 0 8px}.hero h1{margin:0 0 6px;font-weight:800;font-size:clamp(26px,5vw,40px);line-height:1.4;background:linear-gradient(180deg,#fff3e0,var(--cara));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:0 0 14px;font-weight:300;font-size:14px;color:rgba(244,235,221,.7)}
+.btn{border:0;border-radius:3px;padding:11px 22px;font-weight:500;font-size:14px;background:linear-gradient(135deg,#e6b987,var(--cara));color:#1a0f08}
+.btn:disabled{opacity:.4;cursor:default}.btn.g{background:transparent;border:1px solid var(--line);color:var(--cream)}
+.tabs{display:flex;gap:8px;margin:18px 0;overflow-x:auto}.tabs button{background:transparent;border:1px solid var(--line);border-radius:20px;padding:7px 18px;font-size:13px;white-space:nowrap;opacity:.7}.tabs button.a{background:rgba(208,154,98,.18);border-color:var(--cara);color:var(--cara);opacity:1}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.it{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:10px}
+.it.out{opacity:.55}
+.it h3{margin:0;font-size:16px;font-weight:500}.pr{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--cara)}.pr small{font-family:'Vazirmatn';font-size:11px;font-weight:300;color:rgba(244,235,221,.6);margin:0 4px}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.ch{display:flex;flex-wrap:wrap;gap:5px}.ch span{font-size:11px;border:1px solid var(--line);border-radius:12px;padding:1px 9px;color:rgba(244,235,221,.75)}.ch span.x{border-color:var(--red);color:var(--red)}
+.lb{font-size:11px;font-weight:300;color:rgba(244,235,221,.55);margin-bottom:-4px}
+.st{font-size:12px}.ok{color:var(--sage)}.no{color:var(--red)}.lo{color:var(--cara)}
+.ov{position:fixed;inset:0;z-index:20;background:rgba(8,5,3,.72);display:flex;align-items:flex-end;justify-content:center}
+.sh{width:min(560px,100%);max-height:90vh;overflow:auto;background:#17100c;border:1px solid var(--line);border-radius:14px 14px 0 0;padding:20px;animation:up .3s}
+.sh.w{width:min(780px,100%)}
+@media(min-width:640px){.ov{align-items:center}.sh{border-radius:6px}}
+@keyframes up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
+.sh h2{margin:0 0 14px;font-size:18px;font-weight:500;color:var(--cara);display:flex;justify-content:space-between;align-items:center}
+.x1{background:none;border:0;font-size:20px;opacity:.7}
+.ln{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+.qt{display:flex;gap:10px;align-items:center}.qt button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent}
+.tot{display:flex;justify-content:space-between;font-size:17px;margin:16px 0;font-weight:500}
+.sg{background:rgba(155,184,154,.08);border:1px dashed var(--sage);border-radius:4px;padding:10px 12px;margin-top:12px;font-size:13px}.sg div{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0}
+.fm{display:grid;gap:12px}.fm label{font-size:12px;color:rgba(244,235,221,.7);display:grid;gap:4px}
+input,textarea{font:inherit;color:var(--cream);background:#0e0805;border:1px solid var(--line);border-radius:3px;padding:10px 12px;width:100%;direction:ltr;text-align:left}
+textarea{direction:inherit;text-align:start}
+.gw{border:1px solid var(--cara);border-radius:6px;padding:14px;background:linear-gradient(160deg,#241911,#120d0a)}
+.gwh{display:flex;justify-content:space-between;font-size:12px;color:rgba(244,235,221,.7);margin-bottom:10px;direction:ltr}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.note{font-size:11px;color:rgba(244,235,221,.5);margin-top:10px;line-height:1.8}
+.err{color:var(--red);font-size:12px;min-height:16px}
+.rc{text-align:center;padding:10px 0}.rc .tick{width:62px;height:62px;border-radius:50%;border:2px solid var(--sage);display:grid;place-items:center;font-size:30px;color:var(--sage);margin:0 auto 14px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}.stats div{border:1px solid var(--line);padding:10px;text-align:center;border-radius:3px}.stats b{display:block;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--cara)}.stats span{font-size:11px;color:rgba(244,235,221,.6)}
+.badge{font-size:11px;border-radius:10px;padding:2px 10px;border:1px solid var(--cara);color:var(--cara)}
+.sp{height:18px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<header><div class="logo">AURUM CAFÉ</div><div class="hb"><button class="pill" id="lg"></button><button class="pill" id="ad"></button><button class="pill cart" id="ct"></button></div></header>
+<div class="wrap">
+ <div class="hero"><h1 id="h1"></h1><p id="hp"></p><button class="btn" id="ai"></button></div>
+ <div class="tabs" id="tabs" role="tablist"></div>
+ <div class="grid" id="grid"></div>
+</div>
+<div id="ov"></div>
+<script>
+(function(){
+const $=s=>document.querySelector(s);
+const ING={espresso:['بن اسپرسو','Espresso'],milk:['شیر','Milk'],choco:['شکلات','Chocolate'],caramel:['کارامل','Caramel'],matcha:['ماچا','Matcha'],vanilla:['وانیل','Vanilla'],tea:['چای ماسالا','Masala tea'],lemon:['لیمو','Lemon'],ice:['یخ','Ice'],cake:['چیزکیک','Cheesecake'],croissant:['کروسان','Croissant']};
+const IT=[[1,'hot','اسپرسو','Espresso',85000,['espresso']],[2,'hot','لاته','Latte',135000,['espresso','milk']],[3,'hot','کاپوچینو','Cappuccino',140000,['espresso','milk']],[4,'hot','موکا','Mocha',160000,['espresso','milk','choco']],[5,'hot','کارامل ماکیاتو','Caramel Macchiato',165000,['espresso','milk','caramel','vanilla']],[6,'hot','ماچا لاته','Matcha Latte',170000,['matcha','milk']],[7,'hot','چای ماسالا','Masala Chai',110000,['tea','milk']],[8,'hot','هات چاکلت','Hot Chocolate',150000,['choco','milk']],[9,'cold','آیس لاته','Iced Latte',150000,['espresso','milk','ice']],[10,'cold','لیموناد','Lemonade',120000,['lemon','ice']],[11,'food','چیزکیک','Cheesecake',190000,['cake']],[12,'food','کروسان','Croissant',130000,['croissant']]];
+const INV0={espresso:30,milk:25,choco:12,caramel:2,matcha:0,vanilla:10,tea:15,lemon:14,ice:40,cake:2,croissant:9};
+const T={fa:{h1:'منوی هوشمند آوروم کافه',hp:'موجودی لحظه‌ای، ترکیبات هر نوشیدنی و پیشنهاد مخصوص شما',ai:'✦ پیشنهاد هوشمند',cart:'سبد',admin:'مدیریت',hot:'گرم',cold:'سرد',food:'خوراکی',add:'افزودن',out:'ناموجود',av:'موجود',only:n=>`فقط ${n} عدد مانده`,miss:'نبود: ',made:'ترکیبات',cur:'تومان',empty:'سبد خالی است',total:'جمع کل',pay:'پرداخت',pair:'همراه پیشنهادی',pd:'با کیک یا کروسان کامل‌تر می‌شود',pf:'با یک قهوه گرم عالی است',lnk:'ادامه خرید'},
+en:{h1:'Aurum Café Smart Menu',hp:'Live stock, ingredients for every drink, and picks made for you',ai:'✦ Smart pick',cart:'Cart',admin:'Admin',hot:'Hot',cold:'Cold',food:'Food',add:'Add',out:'Out of stock',av:'Available',only:n=>`Only ${n} left`,miss:'Missing: ',made:'Made with',cur:'Toman',empty:'Your cart is empty',total:'Total',pay:'Pay',pair:'Pairs well',pd:'Lovely with a cheesecake or croissant',pf:'Perfect with a hot coffee',lnk:'Keep shopping'}};
+let S={lang:'fa',cart:{},inv:{...INV0},pr:{},orders:[],tab:'hot',view:null,at:'orders',ok:false,sug:null,order:null};
+try{const j=JSON.parse(localStorage.getItem('aurum-cafe-v1'));if(j){S.inv=j.inv;S.pr=j.pr;S.orders=j.orders}}catch(e){}
+const save=()=>{try{localStorage.setItem('aurum-cafe-v1',JSON.stringify({inv:S.inv,pr:S.pr,orders:S.orders}))}catch(e){}};
+const t=k=>T[S.lang][k],Lx=()=>S.lang==='fa'?0:1;
+const fa=()=>S.lang==='fa',nm=i=>fa()?i[2]:i[3],ing=k=>ING[k][fa()?0:1],P=i=>S.pr[i[0]]??i[4];
+const nf=n=>Number(n).toLocaleString(fa()?'fa-IR':'en-US'),esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+const use=k=>IT.reduce((s,i)=>s+(i[5].includes(k)?(S.cart[i[0]]||0):0),0);
+const miss=i=>i[5].filter(k=>S.inv[k]<=0),left=i=>Math.min(...i[5].map(k=>S.inv[k]));
+const can=i=>i[5].every(k=>S.inv[k]-use(k)>=1);
+const cnt=()=>Object.values(S.cart).reduce((a,b)=>a+b,0),sum=()=>IT.reduce((s,i)=>s+(S.cart[i[0]]||0)*P(i),0);
+const price=n=>`<span class="pr">${nf(n)}<small>${t('cur')}</small></span>`;
+function main(){
+ document.documentElement.lang=S.lang;document.documentElement.dir=fa()?'rtl':'ltr';
+ $('#lg').textContent=fa()?'EN':'فارسی';$('#ad').textContent=t('admin');$('#ct').textContent=`${t('cart')} · ${nf(cnt())}`;
+ $('#h1').textContent=t('h1');$('#hp').textContent=t('hp');$('#ai').textContent=t('ai');
+ $('#tabs').innerHTML=['hot','cold','food'].map(k=>`<button class="${S.tab===k?'a':''}" data-t="${k}">${t(k)}</button>`).join('');
+ $('#grid').innerHTML=IT.filter(i=>i[1]===S.tab).map(i=>{
+  const m=miss(i),l=left(i),o=m.length>0,c=S.cart[i[0]]||0,full=!o&&!can(i);
+  const stt=o?`<span class="st no">● ${t('out')} — ${t('miss')}${m.map(ing).join('، ')}</span>`:l<=3?`<span class="st lo">● ${t('only')(nf(l))}</span>`:`<span class="st ok">● ${t('av')}</span>`;
+  return `<div class="it ${o?'out':''}"><div class="row"><h3>${nm(i)}</h3>${price(P(i))}</div><div class="lb">${t('made')}</div><div class="ch">${i[5].map(k=>`<span class="${S.inv[k]<=0?'x':''}">${ing(k)}</span>`).join('')}</div>${stt}<button class="btn" data-a="${i[0]}" ${o||full?'disabled':''}>${o?t('out'):t('add')}${c?' · '+nf(c):''}</button></div>`}).join('');
+}
+function ov(){
+ const o=$('#ov');if(!S.view){o.innerHTML='';return}
+ const cl='<button class="x1" data-x aria-label="close">✕</button>';let h='';
+ if(S.view==='cart'){
+  const its=IT.filter(i=>S.cart[i[0]]);
+  h=`<h2>${t('cart')}${cl}</h2>`+(its.length?its.map(i=>`<div class="ln"><div>${nm(i)}<br>${price(P(i))}</div><div class="qt"><button data-m="${i[0]}">−</button>${nf(S.cart[i[0]])}<button data-a="${i[0]}" ${can(i)?'':'disabled'}>+</button></div></div>`).join('')+sugg(its)+`<div class="tot"><span>${t('total')}</span>${price(sum())}</div><button class="btn" style="width:100%" data-pay>${t('pay')}</button>`:`<p style="color:rgba(244,235,221,.6)">${t('empty')}</p>`);
+  o.innerHTML=`<div class="ov"><div class="sh">${h}</div></div>`}
+ else if(S.view==='ai'){
+  o.innerHTML=`<div class="ov"><div class="sh"><h2>${t('ai')}${cl}</h2><div class="fm"><textarea id="aq" rows="2" placeholder="${fa()?'مثلاً: امروز خسته‌ام و چیز شیرین و گرم می‌خوام':'e.g. I am tired and want something sweet and warm'}"></textarea><button class="btn" data-go>${fa()?'پیشنهاد بده':'Suggest'}</button></div><div id="ar" style="margin-top:14px"></div></div></div>`}
+ else if(S.view==='pay')o.innerHTML=pay();
+ else if(S.view==='done'){const r=S.order;o.innerHTML=`<div class="ov"><div class="sh"><div class="rc"><div class="tick">✓</div><h2 style="justify-content:center">پرداخت موفق · Payment successful</h2><p style="font-size:14px;line-height:2">سفارش شما ثبت شد و در حال آماده‌سازی است.<br>Your order is placed and being prepared.</p><div class="pr" style="font-size:30px;direction:ltr">${r.id}</div><div class="note">${nf(r.total)} ${t('cur')}</div><br><button class="btn" data-x>${t('lnk')}</button></div></div></div>`}
+ else if(S.view==='admin')o.innerHTML=adm();
+}
+function sugg(its){
+ const cats=its.map(i=>i[1]),hasF=cats.includes('food'),hasD=cats.some(c=>c!=='food');
+ const pool=IT.filter(i=>!S.cart[i[0]]&&!miss(i).length&&can(i)&&(hasD&&!hasF?i[1]==='food':!hasD&&hasF?i[1]==='hot':false)).slice(0,2);
+ if(!pool.length)return'';
+ return `<div class="sg"><b>✦ ${t('pair')}</b> — ${hasF?t('pf'):t('pd')}${pool.map(i=>`<div><span>${nm(i)} · ${nf(P(i))}</span><button class="btn g" data-a="${i[0]}">${t('add')}</button></div>`).join('')}</div>`}
+function pay(){
+ return `<div class="ov"><div class="sh"><h2>درگاه پرداخت · Payment Gateway<button class="x1" data-x>✕</button></h2><div class="gw"><div class="gwh"><span>Aurum Café</span><span>${nf(sum())} ${t('cur')}</span></div>
+ <div class="fm"><label>شماره کارت · Card number<input id="cn" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000"></label>
+ <div class="two"><label>تاریخ انقضا · Expiry<input id="ce" maxlength="5" placeholder="MM/YY"></label><label>رمز CVV2 · CVV2<input id="cv" inputmode="numeric" maxlength="4" placeholder="•••"></label></div>
+ <div class="err" id="pe"></div><button class="btn" data-confirm>پرداخت · Pay ${nf(sum())}</button><button class="btn g" data-fill>کارت آزمایشی · Use test card</button></div></div>
+ <div class="note">⚠ درگاه آزمایشی است و هیچ پولی کم نمی‌شود. · Demo gateway: no real payment is made.</div></div></div>`}
+function adm(){
+ const cl='<button class="x1" data-x>✕</button>';
+ if(!S.ok)return `<div class="ov"><div class="sh"><h2>${t('admin')}${cl}</h2><div class="fm"><label>${fa()?'رمز مدیر (نمونه: 1234)':'Admin PIN (demo: 1234)'}<input id="pin" type="password" inputmode="numeric" maxlength="8"></label><div class="err" id="pe"></div><button class="btn" data-login>${fa()?'ورود':'Sign in'}</button></div></div></div>`;
+ const rev=S.orders.reduce((a,o)=>a+o.total,0),tabs=[['orders',fa()?'سفارش‌ها':'Orders'],['stock',fa()?'موجودی':'Stock'],['price',fa()?'قیمت‌ها':'Prices']];
+ let b='';
+ if(S.at==='orders')b=S.orders.length?S.orders.map(o=>`<div class="ln" style="align-items:flex-start"><div><b>${o.id}</b> <span class="badge">${ST[o.st][Lx()]}</span><br><span style="font-size:12px;color:rgba(244,235,221,.7)">${o.lines.map(l=>l[0]+' × '+nf(l[1])).join('، ')}</span></div><div style="text-align:end">${price(o.total)}${o.st<3?`<br><button class="btn g" style="padding:4px 12px;font-size:12px" data-st="${o.id}">${ST[o.st+1][Lx()]} ›</button>`:''}</div></div>`).join(''):`<p style="color:rgba(244,235,221,.6)">${fa()?'هنوز سفارشی نیست':'No orders yet'}</p>`;
+ else if(S.at==='stock')b=Object.keys(ING).map(k=>`<div class="ln"><span>${ing(k)}${S.inv[k]<=0?` <span class="no">(${t('out')})</span>`:''}</span><div class="qt"><button data-iv="${k}:-1">−</button><input data-ii="${k}" type="number" min="0" value="${S.inv[k]}" style="width:70px;text-align:center"><button data-iv="${k}:1">+</button></div></div>`).join('');
+ else b=IT.map(i=>`<div class="ln"><span>${nm(i)}</span><input data-pi="${i[0]}" type="number" min="0" step="1000" value="${P(i)}" style="width:130px"></div>`).join('');
+ return `<div class="ov"><div class="sh w"><h2>${t('admin')}${cl}</h2><div class="stats"><div><b>${nf(S.orders.length)}</b><span>${fa()?'سفارش':'Orders'}</span></div><div><b>${nf(rev)}</b><span>${fa()?'فروش (تومان)':'Revenue (Toman)'}</span></div><div><b>${nf(IT.filter(i=>miss(i).length).length)}</b><span>${fa()?'آیتم ناموجود':'Items out'}</span></div></div><div class="tabs">${tabs.map(x=>`<button class="${S.at===x[0]?'a':''}" data-at="${x[0]}">${x[1]}</button>`).join('')}</div>${b}<div class="sp"></div><button class="btn g" data-reset>${fa()?'بازنشانی داده‌های نمونه':'Reset demo data'}</button></div></div>`}
+const ST=[['جدید','New'],['در حال آماده‌سازی','Preparing'],['آماده','Ready'],['تحویل شد','Delivered']];
+function all(){main();ov()}
+function add(id){const i=IT.find(x=>x[0]==id);if(i&&!miss(i).length&&can(i)){S.cart[id]=(S.cart[id]||0)+1;S.view==='ai'?main():all()}}
+function dec(id){if(S.cart[id]>1)S.cart[id]--;else delete S.cart[id];all()}
+async function askAI(q){
+ const r=$('#ar');r.innerHTML=`<p style="opacity:.6">…</p>`;
+ const av=IT.filter(i=>!miss(i).length);let picks=null;
+ try{const s=window.claude&&await window.claude.use('sample');
+  if(s){const j=await s.json(`You are a barista sommelier. Menu of AVAILABLE items (id|name|ingredients): ${av.map(i=>i[0]+'|'+i[3]+'|'+i[5].join('+')).join('; ')}. Customer says: "${q}". Reply ONLY JSON {"picks":[{"id":number,"why":string}]} with 1 to 3 ids from the list, 'why' one short sentence in ${fa()?'Persian':'English'}.`,{cache:false});picks=(j.picks||[]).filter(p=>av.some(i=>i[0]===p.id)).slice(0,3)}}catch(e){}
+ if(!picks||!picks.length){const w=/شیرین|sweet|tired|خسته/i.test(q);picks=av.filter(i=>w?[4,5,8,11].includes(i[0]):[2,3,9].includes(i[0])).slice(0,3).map(i=>({id:i[0],why:fa()?'انتخابی محبوب و متناسب با سلیقه شما':'A popular pick that fits your taste'}))}
+ r.innerHTML=picks.map(p=>{const i=IT.find(x=>x[0]===p.id);return `<div class="ln"><div><b>${nm(i)}</b> · ${nf(P(i))}<br><span style="font-size:12px;color:rgba(244,235,221,.7)">${esc(p.why||'')}</span></div><button class="btn g" data-a="${i[0]}">${t('add')}</button></div>`}).join('')}
+function checkout(){
+ const cn=$('#cn').value.replace(/\s/g,''),ce=$('#ce').value,cv=$('#cv').value,e=$('#pe');
+ if(!/^\d{16}$/.test(cn)||!/^\d{2}\/\d{2}$/.test(ce)||!/^\d{3,4}$/.test(cv)){e.textContent='اطلاعات کارت نامعتبر است · Invalid card details';return}
+ const bad=IT.filter(i=>S.cart[i[0]]&&miss(i).length);
+ if(bad.length){bad.forEach(i=>delete S.cart[i[0]]);S.view='cart';all();return}
+ const b=document.querySelector('[data-confirm]');b.disabled=true;b.textContent='… در حال پردازش · Processing';
+ setTimeout(()=>{
+  const lines=IT.filter(i=>S.cart[i[0]]).map(i=>[nm(i),S.cart[i[0]]]);
+  IT.forEach(i=>{const q=S.cart[i[0]]||0;i[5].forEach(k=>S.inv[k]=Math.max(0,S.inv[k]-q))});
+  S.order={id:'AC-'+(10000+Math.floor(Math.random()*89999)),total:sum(),lines,st:0};S.orders.unshift(S.order);S.cart={};save();S.view='done';all()},1700)}
+document.addEventListener('click',e=>{
+ const d=e.target.closest('[data-t],[data-a],[data-m],[data-x],[data-pay],[data-confirm],[data-fill],[data-go],[data-login],[data-at],[data-iv],[data-st],[data-reset]');
+ if(!d){if(e.target.classList&&e.target.classList.contains('ov')){S.view=null;ov()}return}
+ const g=a=>d.getAttribute(a);
+ if(g('data-t')){S.tab=g('data-t');main()}
+ else if(g('data-a')!==null&&d.hasAttribute('data-a')){add(g('data-a'));if(S.view==='ai'){/* keep */}}
+ else if(d.hasAttribute('data-m'))dec(g('data-m'));
+ else if(d.hasAttribute('data-x')){S.view=null;ov()}
+ else if(d.hasAttribute('data-pay')){S.view='pay';ov()}
+ else if(d.hasAttribute('data-fill')){$('#cn').value='6037 9912 3456 7890';$('#ce').value='12/29';$('#cv').value='123'}
+ else if(d.hasAttribute('data-confirm'))checkout();
+ else if(d.hasAttribute('data-go')){askAI($('#aq').value||'')}
+ else if(d.hasAttribute('data-login')){if($('#pin').value==='1234'){S.ok=true;ov()}else $('#pe').textContent=fa()?'رمز اشتباه است':'Wrong PIN'}
+ else if(d.hasAttribute('data-at')){S.at=g('data-at');ov()}
+ else if(d.hasAttribute('data-iv')){const[k,v]=g('data-iv').split(':');S.inv[k]=Math.max(0,S.inv[k]+ +v);save();all()}
+ else if(d.hasAttribute('data-st')){const o=S.orders.find(x=>x.id===g('data-st'));if(o&&o.st<3){o.st++;save();ov()}}
+ else if(d.hasAttribute('data-reset')){S.inv={...INV0};S.pr={};S.orders=[];S.cart={};save();all()}
+});
+document.addEventListener('change',e=>{const a=e.target;
+ if(a.dataset.ii){S.inv[a.dataset.ii]=Math.max(0,+a.value||0);save();all()}
+ else if(a.dataset.pi){S.pr[a.dataset.pi]=Math.max(0,+a.value||0);save();main()}});
+document.addEventListener('input',e=>{if(e.target.id==='cn'){let v=e.target.value.replace(/\D/g,'').slice(0,16);e.target.value=v.replace(/(.{4})/g,'$1 ').trim()}
+ if(e.target.id==='ce'){let v=e.target.value.replace(/\D/g,'').slice(0,4);e.target.value=v.length>2?v.slice(0,2)+'/'+v.slice(2):v}});
+$('#lg').onclick=()=>{S.lang=fa()?'en':'fa';location.hash='';all();/* L updates via fa() */ };
+$('#ad').onclick=()=>{S.view='admin';ov()};$('#ct').onclick=()=>{S.view='cart';ov()};$('#ai').onclick=()=>{S.view='ai';ov()};
+all();
+})();
+</script>
+</body>
+</html>

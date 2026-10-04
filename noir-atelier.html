@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Noir Atelier — Twelve seats. One table.</title>
+<meta name="description" content="A twelve-seat chef's counter and tasting menu. Concept design for a fine dining restaurant.">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3eee6;--fg:#171310;--mut:#6c6358;--line:#d8cfc1;--acc:#b8431f;--card:#faf6ef;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0807;--fg:#efe7da;--mut:#9a9183;--line:#24201c;--acc:#e0653a;--card:#110e0c}}
+:root[data-theme="dark"]{--bg:#0a0807;--fg:#efe7da;--mut:#9a9183;--line:#24201c;--acc:#e0653a;--card:#110e0c}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 17px/1.75 Karla,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.w{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+h1,h2,h3{font-family:"Bodoni Moda",Didot,Georgia,serif;font-weight:400;margin:0}
+nav{display:flex;justify-content:space-between;align-items:center;padding:28px 0}
+.logo{font:500 1.15rem "Bodoni Moda",Didot,Georgia,serif;letter-spacing:.32em;text-transform:uppercase}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.btn{display:inline-block;padding:14px 30px;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border:1px solid var(--acc);color:var(--acc);transition:.3s}
+.btn:hover,.btn.f{background:var(--acc);color:var(--bg)}.btn.f:hover{background:transparent;color:var(--acc)}
+.hero{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center;padding:56px 0 110px}
+.eyebrow{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--acc);font-weight:500}
+h1{font-size:clamp(3.2rem,9vw,7.4rem);line-height:.94;margin:22px 0 28px;letter-spacing:-.015em}
+h1 em{font-style:italic;color:var(--acc)}
+.lead{max-width:28em;color:var(--mut);margin:0 0 34px}
+.plate{width:100%;max-width:380px;margin:0 auto;display:block}
+section{padding:96px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(2.1rem,4.6vw,3.4rem);line-height:1.06;margin:14px 0 14px}
+.sub{color:var(--mut);max-width:34em;margin:0 0 52px}
+.menu{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.menu li{display:grid;grid-template-columns:64px 1fr auto;gap:20px;align-items:baseline;padding:26px 0;border-bottom:1px solid var(--line);transition:.3s}
+.menu li:hover{padding-left:12px}
+.menu .n{font:italic 400 1.1rem "Bodoni Moda",Didot,Georgia,serif;color:var(--acc)}
+.menu h3{font-size:1.5rem}
+.menu p{margin:4px 0 0;color:var(--mut);font-size:.92rem}
+.menu .s{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);text-align:right}
+.chef{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.chef .sig{aspect-ratio:1/1;max-width:360px;width:100%;border:1px solid var(--line);display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,var(--card),transparent 72%)}
+.chef .sig svg{width:62%}
+blockquote{margin:0}
+blockquote p{font:italic 400 clamp(1.6rem,3.2vw,2.3rem)/1.3 "Bodoni Moda",Didot,Georgia,serif;margin:0 0 22px}
+blockquote cite{font-style:normal;font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--mut)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px}
+.facts b{display:block;font:400 3.2rem/1 "Bodoni Moda",Didot,Georgia,serif;color:var(--acc)}
+.facts span{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+.book{text-align:center}
+.book p{color:var(--mut);max-width:32em;margin:0 auto 34px}
+footer{padding:30px 0 44px;color:var(--mut);font-size:.8rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line)}
+@media (max-width:820px){nav ul{display:none}.hero,.chef{grid-template-columns:1fr}.plate{max-width:240px;order:-1}.menu li{grid-template-columns:44px 1fr}.menu .s{grid-column:2;text-align:left}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<nav><a class="logo" href="#">Noir Atelier</a>
+<ul><li><a href="#menu">Menu</a></li><li><a href="#chef">The Chef</a></li><li><a href="#book">Reserve</a></li></ul>
+<a class="btn" href="#book">Reserve</a></nav>
+<header class="hero">
+<div>
+<div class="eyebrow">Chef's counter · Paris, 6e</div>
+<h1>Twelve seats. <em>One</em> table.</h1>
+<p class="lead">A single seating each evening: fourteen courses cooked in front of you, using what arrived from our growers that morning.</p>
+<a class="btn f" href="#menu">Read the menu</a>
+</div>
+<svg class="plate" viewBox="0 0 300 300" role="img" aria-label="An abstract plate with a single ember-coloured dot">
+<circle cx="150" cy="150" r="146" fill="none" stroke="currentColor" stroke-opacity=".5" stroke-width="1"/>
+<circle cx="150" cy="150" r="124" fill="none" stroke="currentColor" stroke-opacity=".25"/>
+<circle cx="150" cy="150" r="98" fill="none" stroke="currentColor" stroke-opacity=".2"/>
+<circle cx="150" cy="150" r="52" fill="none" stroke="currentColor" stroke-opacity=".2"/>
+<circle cx="188" cy="128" r="17" style="fill:var(--acc)"/>
+<path d="M92 176 Q140 192 190 170" fill="none" style="stroke:var(--fg)" stroke-width="1.4" stroke-linecap="round" opacity=".8"/>
+<circle cx="104" cy="160" r="2.5" style="fill:var(--fg)" opacity=".7"/><circle cx="118" cy="150" r="1.8" style="fill:var(--fg)" opacity=".5"/>
+</svg>
+</header>
+</div>
+
+<section id="menu"><div class="w">
+<div class="eyebrow">Autumn menu</div>
+<h2>Fourteen courses, in order</h2>
+<p class="sub">The menu changes with the market. Below, a selection from the current season.</p>
+<ol class="menu">
+<li><span class="n">i</span><div><h3>Oyster, green apple, smoked cream</h3><p>Brittany oyster served just warm, with a cold apple broth.</p></div><span class="s">Opening</span></li>
+<li><span class="n">iv</span><div><h3>Scallop, burnt butter, yuzu kosho</h3><p>Seared on one side only, finished with a sauce of its own shell.</p></div><span class="s">Sea</span></li>
+<li><span class="n">viii</span><div><h3>Pigeon, beetroot, black garlic</h3><p>Aged for eight days, roasted on the bone and rested for twelve minutes.</p></div><span class="s">Fire</span></li>
+<li><span class="n">xi</span><div><h3>Aged Comté, walnut, honey</h3><p>Thirty-six months of cellar time, served at room temperature.</p></div><span class="s">Cheese</span></li>
+<li><span class="n">xiv</span><div><h3>Dark chocolate, olive oil, sea salt</h3><p>A final course that is bitter, silky and gone too quickly.</p></div><span class="s">Close</span></li>
+</ol>
+</div></section>
+
+<section id="chef"><div class="w chef">
+<div class="sig"><svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M30 78 Q44 30 60 66 T92 40" stroke-linecap="round"/><path d="M26 90 H96" stroke-opacity=".5"/><circle cx="92" cy="40" r="2.5" style="fill:var(--acc);stroke:none"/></svg></div>
+<blockquote><div class="eyebrow">The chef</div>
+<p style="margin-top:16px">“Cooking is the art of removing everything that is not the ingredient.”</p>
+<cite>Julien Marais · Chef &amp; Owner</cite></blockquote>
+</div></section>
+
+<section><div class="w"><div class="facts">
+<div><b>12</b><span>Seats</span></div><div><b>14</b><span>Courses</span></div><div><b>3.5 h</b><span>One seating</span></div><div><b>2</b><span>Michelin stars</span></div>
+</div></div></section>
+
+<section id="book" class="book"><div class="w">
+<div class="eyebrow">Reservations</div>
+<h2>The table opens on the first of each month</h2>
+<p>Dinner is served Tuesday to Saturday at 19:30. Dietary requirements are welcomed with forty-eight hours of notice.</p>
+<a class="btn f" href="mailto:table@noiratelier.example">Request a seat</a>
+</div></section>
+
+<div class="w"><footer><span>© 2026 Noir Atelier</span><span>Concept design · fictional brand</span></footer></div>
+</body>
+</html>

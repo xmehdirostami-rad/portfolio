@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurum Mind | دستیار هوشمند</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Vazirmatn:wght@300;500;800&display=swap">
+<style>
+:root{--bg:#070b1a;--gold:#f3c9b8;--brass:#d08f7c;--ivory:#f1f3fb;--line:rgba(243,201,184,.22);--card:rgba(241,243,251,.05);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:radial-gradient(ellipse at 50% -10%,#1a2350,var(--bg) 62%);color:var(--ivory);font-family:'Vazirmatn',system-ui,sans-serif;display:flex;flex-direction:column}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px}
+.mk{width:30px;height:30px;transform:rotate(45deg) scale(.8);border:1px solid var(--gold);display:grid;place-items:center;flex:none}.mk b{width:12px;height:12px;background:linear-gradient(135deg,var(--gold),var(--brass))}
+.brand div{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:20px;letter-spacing:.25em;color:var(--gold);direction:ltr}
+.modes{display:flex;gap:6px;flex-wrap:wrap}
+.modes button,.nb{font:inherit;font-size:12.5px;color:var(--ivory);background:transparent;border:1px solid var(--line);border-radius:20px;padding:6px 14px;cursor:pointer;opacity:.7}
+.modes button.a{background:rgba(243,201,184,.15);color:var(--gold);opacity:1;border-color:var(--gold)}
+button:focus-visible,textarea:focus-visible{outline:2px solid var(--ivory);outline-offset:2px}
+#chat{flex:1;overflow-y:auto;padding:22px 16px 10px}
+.col{max-width:760px;margin:0 auto}
+.hero{text-align:center;padding:6vh 0 10px}
+.hero .big{width:64px;height:64px;margin:0 auto 22px;transform:rotate(45deg);border:1px solid var(--gold);display:grid;place-items:center;box-shadow:0 0 44px rgba(243,201,184,.25)}.hero .big b{width:24px;height:24px;background:linear-gradient(135deg,var(--gold),var(--brass))}
+.hero h1{margin:0 0 8px;font-weight:800;font-size:clamp(28px,6vw,42px);background:linear-gradient(180deg,#fff0e8,var(--gold) 50%,var(--brass));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin:0 0 28px;font-weight:300;color:rgba(241,243,251,.65);font-size:14px}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;text-align:right}
+.sg button{font:inherit;font-size:13px;line-height:1.8;font-weight:300;color:var(--ivory);background:var(--card);border:1px solid var(--line);border-radius:3px;padding:14px 16px;cursor:pointer;text-align:right}
+.sg button:hover{border-color:var(--gold);background:rgba(243,201,184,.1)}
+.msg{display:flex;gap:12px;margin:0 0 22px;animation:in .35s}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.msg.u{justify-content:flex-start}
+.msg.u .t{background:rgba(243,201,184,.12);border:1px solid var(--line);padding:10px 16px;border-radius:14px 14px 3px 14px;max-width:85%}
+.av{flex:none;width:26px;height:26px;margin-top:6px;transform:rotate(45deg) scale(.75);border:1px solid var(--gold);display:grid;place-items:center}.av b{width:9px;height:9px;background:linear-gradient(135deg,var(--gold),var(--brass))}
+.t{font-size:14.5px;line-height:2;font-weight:300;min-width:0;overflow-wrap:anywhere}
+.t b{font-weight:500;color:var(--gold)}.t h4{margin:10px 0 2px;color:var(--gold);font-weight:500;font-size:15px}
+.t code{font-family:ui-monospace,monospace;font-size:12.5px;background:rgba(0,0,0,.35);padding:1px 6px;border-radius:3px;direction:ltr;unicode-bidi:embed}
+.t pre{direction:ltr;text-align:left;background:#040712;border:1px solid var(--line);border-radius:3px;padding:12px 14px;overflow:auto;margin:10px 0;line-height:1.7}.t pre code{background:none;padding:0}
+.t ul,.t ol{margin:6px 0;padding:0 22px 0 0}
+.cur{display:inline-block;width:7px;height:14px;background:var(--gold);margin-right:4px;vertical-align:middle;animation:bl 1s steps(2) infinite}@keyframes bl{50%{opacity:0}}
+.cp{font:inherit;font-size:11px;color:var(--brass);background:none;border:0;cursor:pointer;padding:0;margin-top:4px}
+.err{color:#ffb3b3;font-size:13px}
+.bar{padding:10px 16px calc(env(safe-area-inset-bottom,0px) + 14px)}
+.box{max-width:760px;margin:0 auto;display:flex;gap:10px;align-items:flex-end;border:1px solid var(--line);border-radius:18px;background:rgba(14,21,48,.85);padding:8px 10px 8px 12px}
+.box:focus-within{border-color:var(--gold);box-shadow:0 0 28px rgba(243,201,184,.15)}
+textarea{flex:1;resize:none;border:0;outline:0;background:transparent;color:var(--ivory);font:inherit;font-size:14.5px;line-height:1.8;max-height:140px;padding:6px 4px}
+textarea::placeholder{color:rgba(241,243,251,.4)}
+#go{flex:none;width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;font-size:16px;color:#2a1410;background:linear-gradient(135deg,#ffe1d4,var(--brass))}
+#go:disabled{opacity:.4;cursor:default}
+.note{text-align:center;font-size:11px;color:rgba(241,243,251,.4);margin-top:8px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+ <div class="brand"><div class="mk"><b></b></div><div>AURUM MIND</div></div>
+ <div class="modes" id="modes" role="group" aria-label="حالت دستیار"></div>
+ <button class="nb" id="nw">گفتگوی جدید</button>
+</header>
+<div id="chat"><div class="col" id="col"></div></div>
+<div class="bar"><div class="box"><textarea id="in" rows="1" placeholder="هر چیزی بپرس..."></textarea><button id="go" aria-label="ارسال">➤</button></div><div class="note">دستیار ممکن است اشتباه کند. موارد مهم را بررسی کن.</div></div>
+<script>
+(function(){
+const $=id=>document.getElementById(id);
+const MODES={think:['متفکر','Analyze carefully and reason step by step. Weigh trade-offs and give a clear recommendation.'],write:['نویسنده','Act as a skilled writer and editor. Produce polished, natural prose and offer a sharper alternative when useful.'],code:['برنامه‌نویس','Act as a senior engineer. Give correct, minimal code in fenced blocks, then a short explanation.'],coach:['مربی','Act as a supportive but candid coach. Ask at most one good question and give concrete next steps.']};
+const BASE="You are Aurum, a thoughtful, warm and honest AI assistant. Reply in the same language the user writes in (Persian by default). Be concise: short paragraphs, light markdown only when it helps. Never flatter. If you are unsure or lack information, say so plainly. ";
+const SUG=['یک ایده کسب‌وکار لوکس و خلاقانه به من بده','تفاوت استارتاپ و کسب‌وکار سنتی را ساده توضیح بده','برای رزومه‌ام یک خلاصه حرفه‌ای بنویس','یک تابع پایتون برای حذف موارد تکراری از لیست بنویس'];
+let mode='think',H=[],busy=false,ac=null;
+const modes=$('modes');
+Object.keys(MODES).forEach(k=>{const b=document.createElement('button');b.textContent=MODES[k][0];b.className=k===mode?'a':'';b.onclick=()=>{mode=k;[...modes.children].forEach(c=>c.classList.toggle('a',c===b))};modes.appendChild(b)});
+const col=$('col'),chat=$('chat'),ta=$('in'),go=$('go');
+function hero(){col.innerHTML=`<div class="hero"><div class="big"><b></b></div><h1>امروز به چه فکر می‌کنی؟</h1><p>دستیار هوشمند آوروم، آماده تحلیل، نوشتن، کدنویسی و تصمیم‌گیری</p></div><div class="sg"></div>`;
+ const g=col.querySelector('.sg');SUG.forEach(s=>{const b=document.createElement('button');b.textContent=s;b.onclick=()=>send(s);g.appendChild(b)})}
+hero();
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function md(s){
+ const blocks=[];s=esc(s).replace(/```\w*\n?([\s\S]*?)(```|$)/g,(_,c)=>{blocks.push(c.replace(/\n$/,''));return '\u0000'+(blocks.length-1)+'\u0000'});
+ s=s.replace(/`([^`\n]+)`/g,'<code>$1</code>').replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>').replace(/^#{1,3} (.+)$/gm,'<h4>$1</h4>');
+ s=s.replace(/^(?:[-*] .+(?:\n|$))+/gm,m=>'<ul>'+m.trim().split('\n').map(x=>'<li>'+x.slice(2)+'</li>').join('')+'</ul>');
+ s=s.replace(/^(?:\d+\. .+(?:\n|$))+/gm,m=>'<ol>'+m.trim().split('\n').map(x=>'<li>'+x.replace(/^\d+\. /,'')+'</li>').join('')+'</ol>');
+ s=s.replace(/(<\/(?:ul|ol|h4)>)\n/g,'$1').replace(/\n{2,}/g,'<br><br>').replace(/\n/g,'<br>');
+ return s.replace(/\u0000(\d+)\u0000/g,(_,i)=>'<pre><code>'+blocks[i]+'</code></pre>')}
+function near(){return chat.scrollHeight-chat.scrollTop-chat.clientHeight<140}
+function bubble(role){const d=document.createElement('div');d.className='msg '+(role==='user'?'u':'a');
+ d.innerHTML=(role==='user'?'':'<div class="av"><b></b></div>')+'<div class="t"></div>';col.appendChild(d);return d.querySelector('.t')}
+function setBusy(b){busy=b;go.textContent=b?'■':'➤';go.setAttribute('aria-label',b?'توقف':'ارسال');go.disabled=false}
+async function send(text){
+ text=(text||'').trim();if(!text||busy)return;
+ if(!H.length)col.innerHTML='';
+ H.push({role:'user',content:text});bubble('user').textContent=text;ta.value='';ta.style.height='auto';
+ const out=bubble('a');out.innerHTML='<span class="cur"></span>';chat.scrollTop=chat.scrollHeight;setBusy(true);
+ let acc='';ac=new AbortController();
+ try{
+  const sample=window.claude&&await window.claude.use('sample');
+  if(!sample)throw {code:'none'};
+  const hist=H.slice(-20),last=hist[hist.length-1];
+  const turns=[...hist.slice(0,-1),{role:'user',content:BASE+MODES[mode][1]+'\n\nUser message:\n'+last.content}];
+  const r=await sample(turns,{cache:false,signal:ac.signal,onText:({text:t})=>{acc=t;const n=near();out.innerHTML=md(t)+'<span class="cur"></span>';if(n)chat.scrollTop=chat.scrollHeight}});
+  acc=r.text||acc;
+ }catch(e){
+  if(e&&e.text)acc=e.text;
+  if(e&&e.code==='none')out.innerHTML='<span class="err">این نمونه فقط داخل claude.ai فعال است. صفحه را از همان‌جا باز کن.</span>';
+  else if(e&&e.code==='not_granted')out.innerHTML='<span class="err">برای پاسخ‌گویی باید اجازه دسترسی را تأیید کنی.</span>';
+  else if(e&&e.code==='rate_limited')out.innerHTML='<span class="err">تعداد درخواست‌ها زیاد است. چند لحظه بعد دوباره امتحان کن.</span>';
+  else if(!(e&&e.code==='cancelled')&&!acc)out.innerHTML='<span class="err">پاسخ دریافت نشد. دوباره تلاش کن.</span>';
+  if(!acc){if(H[H.length-1].role==='user')H.pop();setBusy(false);return}
+ }
+ out.innerHTML=md(acc);
+ H.push({role:'assistant',content:acc});
+ const c=document.createElement('button');c.className='cp';c.textContent='کپی';c.onclick=async()=>{try{await navigator.clipboard.writeText(acc);c.textContent='کپی شد'}catch(e){c.textContent='کپی نشد'}};out.appendChild(document.createElement('br'));out.appendChild(c);
+ setBusy(false);ac=null;chat.scrollTop=chat.scrollHeight;
+}
+go.onclick=()=>{if(busy){ac&&ac.abort()}else send(ta.value)};
+ta.onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();if(!busy)send(ta.value)}};
+ta.oninput=()=>{ta.style.height='auto';ta.style.height=Math.min(ta.scrollHeight,140)+'px'};
+$('nw').onclick=()=>{if(busy&&ac)ac.abort();H=[];busy=false;setBusy(false);hero()};
+})();
+</script>
+</body>
+</html>

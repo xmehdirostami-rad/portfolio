@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aurum Support | پشتیبانی هوشمند</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;700&family=Vazirmatn:wght@300;500;800&display=swap">
+<style>
+:root{--bg:#06100d;--gold:#e8d5a3;--brass:#b8924a;--ivory:#f4efe4;--wine:#9a2040;--ok:#7fd1a8;--line:rgba(232,213,163,.22);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(ellipse at 70% -10%,#12332a,var(--bg) 60%);color:var(--ivory);font-family:'Vazirmatn',system-ui,sans-serif;min-height:100vh}
+.wrap{max-width:1040px;margin:0 auto;padding:28px 18px 70px}
+header{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+h1{margin:0;font-weight:800;font-size:clamp(28px,5vw,42px);background:linear-gradient(180deg,#fff6dc,var(--gold) 50%,var(--brass));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{font-weight:300;color:rgba(244,239,228,.65);margin-top:6px;font-size:14px}
+.en{font-family:'Cormorant Garamond',serif;color:var(--brass);letter-spacing:.4em;font-size:15px;margin-bottom:4px}
+.ctrl{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.seg{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+.seg button{font:inherit;font-size:13px;color:var(--ivory);background:transparent;border:0;padding:10px 16px;cursor:pointer;opacity:.65}
+.seg button.a{background:rgba(232,213,163,.14);opacity:1;color:var(--gold)}
+.btn{font:inherit;font-weight:500;font-size:15px;color:#1a1305;border:0;padding:11px 28px;border-radius:2px;cursor:pointer;background:linear-gradient(135deg,#f6e7bd,var(--brass));box-shadow:0 8px 28px rgba(184,146,74,.35)}
+.btn:disabled{opacity:.5;cursor:default}button:focus-visible{outline:2px solid var(--ivory);outline-offset:3px}
+.lead{border:1px solid var(--line);border-radius:3px;padding:14px 18px;margin-bottom:18px;background:rgba(244,239,228,.04);font-size:14px;line-height:2;font-weight:300}.lead b{font-weight:500;color:var(--gold)}
+.boardwrap{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:repeating-linear-gradient(0deg,transparent 0 39px,rgba(232,213,163,.05) 39px 40px),repeating-linear-gradient(90deg,transparent 0 39px,rgba(232,213,163,.05) 39px 40px)}
+.board{position:relative;width:960px;height:400px;margin:0 auto;direction:ltr}svg{position:absolute;inset:0;pointer-events:none}
+.e{fill:none;stroke:rgba(232,213,163,.2);stroke-width:1.5}.ef{fill:none;stroke:var(--gold);stroke-width:2.5;filter:drop-shadow(0 0 6px var(--gold));stroke-linecap:round}
+.n{position:absolute;width:150px;height:82px;border:1px solid var(--line);border-radius:3px;background:linear-gradient(160deg,#0f2a22,#08150f);padding:10px 12px;direction:rtl;transition:.4s;display:flex;gap:10px;align-items:center}
+.n .g{flex:none;width:34px;height:34px;transform:rotate(45deg);border:1px solid var(--brass);display:grid;place-items:center;margin:0 3px}.n .g i{transform:rotate(-45deg);font-style:normal;font-size:14px;color:var(--gold)}
+.n .t{font-size:13px;font-weight:500;line-height:1.5}.n .s{font-size:11px;font-weight:300;color:rgba(244,239,228,.55);margin-top:2px}
+.n.run{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 34px rgba(232,213,163,.35)}
+.n.done{border-color:var(--ok);box-shadow:0 0 18px rgba(127,209,168,.2)}.n.done .g{border-color:var(--ok)}.n.done .g i{color:var(--ok)}.n.skip{opacity:.3}
+.n .d{position:absolute;top:-9px;left:10px;background:var(--bg);border:1px solid var(--ok);color:var(--ok);font-size:10px;padding:1px 7px;border-radius:9px;opacity:0;transition:.3s;direction:ltr}.n.done .d{opacity:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:18px 0}
+.stat{border:1px solid var(--line);border-radius:3px;padding:14px 16px;background:rgba(244,239,228,.04)}
+.stat .v{font-family:'Cormorant Garamond','Vazirmatn',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1.2}.stat .l{font-size:12px;color:rgba(244,239,228,.6);font-weight:300;margin-top:4px}
+h2{font-size:18px;font-weight:500;margin:30px 0 14px;color:var(--gold)}.tl{display:grid;gap:14px}
+.card{border:1px solid var(--line);border-right:3px solid var(--brass);border-radius:3px;padding:16px 18px;background:rgba(244,239,228,.04);animation:in .5s}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card h3{margin:0 0 10px;font-size:14px;font-weight:500;display:flex;justify-content:space-between}.card h3 span{font-family:'Cormorant Garamond',serif;color:var(--ok);direction:ltr}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:13px;font-weight:300}.kv dt{color:rgba(244,239,228,.55)}.kv dd{margin:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{font-size:12px;border:1px solid var(--line);padding:3px 12px;border-radius:20px}.chip.hot{border-color:var(--wine);background:rgba(154,32,64,.25);color:#ffc7d3}
+.tg{background:#12302a;border-radius:12px 12px 12px 2px;padding:12px 14px;font-size:13px;line-height:1.9;max-width:380px;border:1px solid rgba(127,209,168,.25)}
+.mail{border:1px solid var(--line);border-radius:3px;background:#f4efe4;color:#1a1a14;font-size:13px;line-height:2;overflow:hidden}.mail .h{background:#e6dcc0;padding:8px 14px;font-size:12px;color:#4a3d1c}.mail .b{padding:12px 16px}
+.empty{border:1px dashed var(--line);border-radius:3px;padding:30px;text-align:center;font-weight:300;color:rgba(244,239,228,.55);font-size:14px}
+.exp{border:1px solid var(--line);border-radius:3px;padding:18px;background:rgba(244,239,228,.04);margin-top:34px}
+.exp p{font-size:13px;font-weight:300;line-height:2;margin:0 0 12px;color:rgba(244,239,228,.75)}
+pre{direction:ltr;text-align:left;background:#040b08;border:1px solid var(--line);padding:14px;font-size:11.5px;overflow:auto;max-height:320px;color:#cfe3d8;line-height:1.7;border-radius:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+ <div><div class="en">AURUM SUPPORT</div><h1>پشتیبانی هوشمند مشتری</h1><div class="sub">تیکت وارد می‌شود، AI تحلیل می‌کند، پاسخ و هشدار خودکار می‌رود</div></div>
+ <div class="ctrl"><div class="seg" role="group" aria-label="انتخاب تیکت"><button class="a" id="b1">تیکت فوری</button><button id="b2">تیکت عادی</button></div><button class="btn" id="run">اجرای اتوماسیون</button></div>
+</header>
+<div class="lead" id="lead"></div>
+<div class="boardwrap"><div class="board" id="board"><svg id="svg" width="960" height="400"></svg></div></div>
+<div class="stats">
+ <div class="stat"><div class="v" id="s1">۰</div><div class="l">مرحله اجراشده</div></div>
+ <div class="stat"><div class="v" id="s2">۰</div><div class="l">زمان کل (ثانیه)</div></div>
+ <div class="stat"><div class="v" id="s3">۰</div><div class="l">دقیقه کار دستی حذف‌شده</div></div>
+ <div class="stat"><div class="v" id="s4">—</div><div class="l">اولویت</div></div>
+</div>
+<h2>خروجی هر مرحله</h2>
+<div class="tl" id="tl"><div class="empty">دکمه «اجرای اتوماسیون» را بزن تا خروجی هر مرحله زنده نمایش داده شود.</div></div>
+<div class="exp"><h2 style="margin-top:0">نسخه واقعی برای n8n</h2>
+<p>همین جریان به‌صورت یک ورک‌فلو واقعی آماده است: در n8n از منوی Import from File یا با چسباندن این JSON وارد کن، سپس کلید Anthropic، چت‌آیدی تلگرام و ایمیل فرستنده را جایگزین کن.</p>
+<div class="ctrl" style="margin-bottom:12px"><button class="btn" id="cp">کپی ورک‌فلو n8n</button><span id="cpm" style="font-size:13px;color:var(--ok)"></span></div>
+<pre id="raw"></pre></div>
+</div>
+<script>
+(function(){
+const WF={
+  "name": "Aurum Support – AI Ticket Triage",
+  "nodes": [
+    {
+      "id": "n1", "name": "Webhook", "type": "n8n-nodes-base.webhook", "typeVersion": 2, "position": [0, 200],
+      "parameters": { "httpMethod": "POST", "path": "support-ticket", "responseMode": "onReceived" }
+    },
+    {
+      "id": "n2", "name": "Claude Analyze", "type": "n8n-nodes-base.httpRequest", "typeVersion": 4.2, "position": [240, 200],
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "sendHeaders": true,
+        "headerParameters": { "parameters": [
+          { "name": "x-api-key", "value": "YOUR_ANTHROPIC_API_KEY" },
+          { "name": "anthropic-version", "value": "2023-06-01" },
+          { "name": "content-type", "value": "application/json" }
+        ] },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'claude-sonnet-5-5', max_tokens: 600, messages: [{ role: 'user', content: 'You triage customer support tickets. Reply ONLY with JSON: {\"category\":string,\"priority\":\"urgent\"|\"normal\",\"sentiment\":string,\"reply\":string (a short, polite answer in the customer language)}. Ticket: ' + $json.body.message }] }) }}"
+      }
+    },
+    {
+      "id": "n3", "name": "Parse Result", "type": "n8n-nodes-base.code", "typeVersion": 2, "position": [480, 200],
+      "parameters": {
+        "jsCode": "const raw = $json.content[0].text.replace(/```json|```/g, '').trim();\nconst ai = JSON.parse(raw);\nconst src = $('Webhook').first().json.body;\nreturn [{ json: { ...src, ...ai } }];"
+      }
+    },
+    {
+      "id": "n4", "name": "Is Urgent?", "type": "n8n-nodes-base.if", "typeVersion": 2, "position": [720, 200],
+      "parameters": {
+        "conditions": {
+          "options": { "caseSensitive": true, "leftValue": "", "typeValidation": "strict" },
+          "conditions": [
+            { "id": "c1", "leftValue": "={{ $json.priority }}", "rightValue": "urgent",
+              "operator": { "type": "string", "operation": "equals" } }
+          ],
+          "combinator": "and"
+        }
+      }
+    },
+    {
+      "id": "n5", "name": "Alert Tech Team", "type": "n8n-nodes-base.telegram", "typeVersion": 1.2, "position": [980, 80],
+      "parameters": {
+        "chatId": "YOUR_TELEGRAM_CHAT_ID",
+        "text": "=🚨 Urgent ticket\nCustomer: {{ $json.name }}\nCategory: {{ $json.category }}\nSentiment: {{ $json.sentiment }}\n\n{{ $json.message }}"
+      }
+    },
+    {
+      "id": "n6", "name": "Send Auto Reply", "type": "n8n-nodes-base.emailSend", "typeVersion": 2.1, "position": [980, 320],
+      "parameters": {
+        "fromEmail": "support@yourcompany.com",
+        "toEmail": "={{ $json.email }}",
+        "subject": "=Re: your support request ({{ $json.category }})",
+        "emailFormat": "text",
+        "text": "={{ $json.reply }}"
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": { "main": [[{ "node": "Claude Analyze", "type": "main", "index": 0 }]] },
+    "Claude Analyze": { "main": [[{ "node": "Parse Result", "type": "main", "index": 0 }]] },
+    "Parse Result": { "main": [[{ "node": "Is Urgent?", "type": "main", "index": 0 }]] },
+    "Is Urgent?": { "main": [
+      [{ "node": "Alert Tech Team", "type": "main", "index": 0 }, { "node": "Send Auto Reply", "type": "main", "index": 0 }],
+      [{ "node": "Send Auto Reply", "type": "main", "index": 0 }]
+    ] }
+  },
+  "settings": { "executionOrder": "v1" }
+}
+;
+const fa=n=>Number(n).toLocaleString('fa-IR'),$=id=>document.getElementById(id),sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const T={
+urgent:{name:'سامان کریمی',email:'saman@example.com',msg:'پرداخت من دو بار از کارت کسر شده ولی سفارشم ثبت نشده! لطفاً سریع پیگیری کنید.',cat:'مالی و پرداخت',pri:'urgent',sent:'ناراضی',sla:'۱۰ دقیقه',reply:'سامان عزیز، بابت این مشکل پوزش می‌خواهیم. تیم مالی ما همین حالا پرداخت شما را بررسی می‌کند و مبلغ اضافه تا ۱۰ دقیقه آینده برگشت داده می‌شود.',saved:22},
+normal:{name:'نگار صالحی',email:'negar@example.com',msg:'سلام، چطور می‌تونم رمز عبور حسابم رو عوض کنم؟',cat:'حساب کاربری',pri:'normal',sent:'خنثی',sla:'۲۴ ساعت',reply:'نگار عزیز، سلام. از بخش «تنظیمات حساب» گزینه «تغییر رمز عبور» را بزنید و کد تأیید ارسال‌شده به موبایلتان را وارد کنید. اگر مشکلی بود همین‌جا بنویسید.',saved:6}};
+const N=[{id:'wh',x:20,y:159,g:'⚡',t:'دریافت تیکت',s:'Webhook'},{id:'ai',x:200,y:159,g:'✦',t:'تحلیل با AI',s:'Claude'},{id:'cd',x:380,y:159,g:'◈',t:'استخراج نتیجه',s:'Code'},{id:'rt',x:560,y:159,g:'⑂',t:'تیکت فوری است؟',s:'IF'},{id:'tg',x:790,y:50,g:'➤',t:'هشدار به تیم فنی',s:'Telegram'},{id:'ml',x:790,y:268,g:'✉',t:'پاسخ خودکار',s:'Email'}];
+const E=[['wh','ai'],['ai','cd'],['cd','rt'],['rt','tg'],['rt','ml']];
+const board=$('board'),svg=$('svg'),el={},ed={},NS='http://www.w3.org/2000/svg';
+N.forEach(n=>{const d=document.createElement('div');d.className='n';d.style.cssText=`left:${n.x}px;top:${n.y}px`;d.innerHTML=`<div class="g"><i>${n.g}</i></div><div><div class="t">${n.t}</div><div class="s">${n.s}</div></div><span class="d"></span>`;board.appendChild(d);el[n.id]=d});
+E.forEach(([a,b])=>{const A=N.find(n=>n.id===a),B=N.find(n=>n.id===b),x1=A.x+150,y1=A.y+41,x2=B.x,y2=B.y+41,m=(x1+x2)/2,dd=`M${x1},${y1} C${m},${y1} ${m},${y2} ${x2},${y2}`;
+ const p=document.createElementNS(NS,'path');p.setAttribute('d',dd);p.setAttribute('class','e');svg.appendChild(p);
+ const f=document.createElementNS(NS,'path');f.setAttribute('d',dd);f.setAttribute('class','ef');svg.appendChild(f);ed[a+b]=f});
+requestAnimationFrame(()=>Object.values(ed).forEach(f=>{const L=f.getTotalLength();f.style.strokeDasharray=L;f.style.strokeDashoffset=L;f.style.transition='stroke-dashoffset .7s ease'}));
+$('raw').textContent=JSON.stringify(WF,null,2);
+let cur='urgent',busy=false,total=0,cnt=0;
+function showLead(){const l=T[cur];$('lead').innerHTML=`<b>تیکت ورودی:</b> ${l.name} · ${l.email}<br>«${l.msg}»`}
+function pick(k){if(busy)return;cur=k;$('b1').classList.toggle('a',k==='urgent');$('b2').classList.toggle('a',k==='normal');showLead()}
+$('b1').onclick=()=>pick('urgent');$('b2').onclick=()=>pick('normal');showLead();
+function reset(){Object.values(el).forEach(e=>e.className='n');Object.values(ed).forEach(f=>f.style.strokeDashoffset=f.getTotalLength());$('tl').innerHTML='';['s1','s2','s3'].forEach(i=>$(i).textContent='۰');$('s4').textContent='—';total=0;cnt=0}
+function card(t,s,h){const c=document.createElement('div');c.className='card';c.innerHTML=`<h3>${t}<span>${s}s</span></h3>${h}`;$('tl').appendChild(c);c.scrollIntoView({behavior:'smooth',block:'nearest'})}
+async function step(id,from,ms,title,html){
+ if(from){ed[from+id].style.strokeDashoffset=0;await sleep(550)}
+ el[id].classList.add('run');await sleep(ms);el[id].classList.replace('run','done');
+ const t=(ms/1000+.2).toFixed(1);el[id].querySelector('.d').textContent=t+'s';card(title,t,html);
+ total+=ms/1000+.2;cnt++;$('s1').textContent=fa(cnt);$('s2').textContent=fa(total.toFixed(1))}
+async function run(){
+ if(busy)return;busy=true;$('run').disabled=true;reset();
+ const l=T[cur],u=l.pri==='urgent',cl=u?'hot':'';
+ await step('wh',null,700,'دریافت تیکت',`<dl class="kv"><dt>مشتری</dt><dd>${l.name}</dd><dt>ایمیل</dt><dd style="direction:ltr;text-align:right">${l.email}</dd><dt>پیام</dt><dd>${l.msg}</dd></dl>`);
+ await step('ai','wh',1300,'تحلیل با هوش مصنوعی',`<div class="chips"><span class="chip">دسته: ${l.cat}</span><span class="chip ${cl}">احساس مشتری: ${l.sent}</span><span class="chip ${cl}">اولویت: ${u?'فوری':'عادی'}</span></div>`);
+ await step('cd','ai',700,'استخراج نتیجه',`<dl class="kv"><dt>هدف پاسخ</dt><dd>${l.sla}</dd><dt>پاسخ پیشنهادی</dt><dd>${l.reply}</dd></dl>`);
+ await step('rt','cd',600,'تصمیم‌گیری',`<div class="chips"><span class="chip ${cl}">${u?'مسیر فوری: هشدار و پاسخ':'مسیر عادی: فقط پاسخ خودکار'}</span></div>`);
+ $('s4').textContent=u?'فوری':'عادی';$('s4').style.fontFamily='Vazirmatn';$('s4').style.fontSize='26px';
+ const mail=async()=>{ed.rtml.style.strokeDashoffset=0;await sleep(550);el.ml.classList.add('run');await sleep(1200);el.ml.classList.replace('run','done');el.ml.querySelector('.d').textContent='1.2s';card('پاسخ خودکار به مشتری','1.2',`<div class="mail"><div class="h">به: ${l.name} · موضوع: پاسخ به درخواست شما (${l.cat})</div><div class="b">${l.reply}</div></div>`);cnt++;total+=1.4;$('s1').textContent=fa(cnt);$('s2').textContent=fa(total.toFixed(1))};
+ if(u){await Promise.all([(async()=>{ed.rttg.style.strokeDashoffset=0;await sleep(550);el.tg.classList.add('run');await sleep(900);el.tg.classList.replace('run','done');el.tg.querySelector('.d').textContent='0.9s';card('هشدار تلگرام به تیم فنی','0.9',`<div class="tg">🚨 <b>تیکت فوری</b><br>مشتری: ${l.name}<br>دسته: ${l.cat} · احساس: ${l.sent}<br>${l.msg}</div>`);cnt++;total+=1.1;$('s1').textContent=fa(cnt)})(),mail()])}
+ else{el.tg.classList.add('skip');await mail()}
+ $('s3').textContent=fa(l.saved);busy=false;$('run').disabled=false;$('run').textContent='اجرای دوباره';
+}
+$('run').onclick=run;
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText(JSON.stringify(WF,null,2));$('cpm').textContent='کپی شد'}catch(e){const r=document.createRange();r.selectNodeContents($('raw'));const s=getSelection();s.removeAllRanges();s.addRange(r);$('cpm').textContent='متن انتخاب شد، کپی کن'}};
+})();
+</script>
+</body>
+</html>

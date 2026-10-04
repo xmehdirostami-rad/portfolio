@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>اندام‌یار | محاسبه کالری، ماکروها و برنامه تمرین هفتگی</title>
+<meta name="description" content="کالری مصرفی روزانه (TDEE)، نیاز پروتئین، چربی و کربوهیدرات، BMI و برنامه تمرین هفتگی را بر اساس هدف خود (کاهش وزن، حفظ یا افزایش عضله) محاسبه کنید. رایگان و بدون ثبت‌نام.">
+<meta property="og:title" content="اندام‌یار | کالری، ماکرو و برنامه تمرین هفتگی">
+<meta property="og:description" content="برنامه تغذیه و تمرین شخصی‌سازی‌شده در چند ثانیه.">
+<meta property="og:type" content="website"><meta property="og:locale" content="fa_IR">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"اندام‌یار","applicationCategory":"HealthApplication","inLanguage":"fa","operatingSystem":"Web","offers":{"@type":"Offer","price":"0","priceCurrency":"IRR"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"TDEE چیست؟","acceptedAnswer":{"@type":"Answer","text":"کالری کل مصرفی روزانه شامل سوخت‌وساز پایه و فعالیت بدنی است."}},{"@type":"Question","name":"محاسبات از چه فرمولی استفاده می‌کنند؟","acceptedAnswer":{"@type":"Answer","text":"فرمول میفلین-سنت جئور برای سوخت‌وساز پایه و ضرایب استاندارد فعالیت."}}]}</script>
+<style>
+:root{--bg:#f6f2ec;--fg:#1d1713;--mut:#6a5d52;--line:#e0d6c9;--acc:#a1471f;--gold:#9a7a3a;--card:#fffcf7;--on:#fff;--p:#a1471f;--c:#9a7a3a;--f:#5b6b78;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0b09;--fg:#f3ebe1;--mut:#a89a8c;--line:#2a211b;--acc:#ec8d5c;--gold:#d8b768;--card:#16110e;--on:#1a0e07;--p:#ec8d5c;--c:#d8b768;--f:#8ea3b4}}
+:root[data-theme="dark"]{--bg:#0e0b09;--fg:#f3ebe1;--mut:#a89a8c;--line:#2a211b;--acc:#ec8d5c;--gold:#d8b768;--card:#16110e;--on:#1a0e07;--p:#ec8d5c;--c:#d8b768;--f:#8ea3b4}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 16px/1.9 Vazirmatn,Tahoma,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+.w{max-width:1060px;margin:0 auto;padding:0 clamp(16px,4vw,32px)}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0;gap:12px}
+.logo{font-weight:700;font-size:1.35rem;color:var(--gold);display:flex;align-items:center;gap:8px}
+.logo svg{width:26px;height:26px}
+.badge{font-size:.8rem;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:2px 14px;background:var(--card)}
+h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:300;line-height:1.35;margin:18px 0 8px}
+h1 b{font-weight:700;color:var(--acc)}
+.sub{margin:0 0 24px;color:var(--mut);max-width:40em}
+.grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:20px;align-items:start}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:20px}
+h2{font-size:1.2rem;font-weight:500;margin:0 0 14px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .full{grid-column:1/-1}
+label{font-size:.82rem;color:var(--mut);display:block}
+input,select{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 12px;margin-top:2px}
+input:focus,select:focus{outline:2px solid var(--gold);outline-offset:1px}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:2px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg span{display:block;text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 4px;cursor:pointer;color:var(--fg);font-size:.88rem;transition:.2s}
+.seg input:checked+span{background:var(--acc);color:var(--on);border-color:var(--acc);font-weight:700}
+.seg input:focus-visible+span{outline:2px solid var(--gold);outline-offset:2px}
+.seg label{position:relative}
+.btn{font:inherit;cursor:pointer;background:var(--acc);color:var(--on);border:0;border-radius:10px;padding:11px 20px;font-weight:700;transition:.2s}
+.btn:hover{filter:brightness(1.1)}
+#err{color:#c2410c;font-size:.85rem;min-height:1.4em;margin:0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+.stat{border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:14px;padding:10px 16px;background:var(--bg)}
+.stat small{color:var(--mut);font-size:.8rem}.stat b{display:block;font-size:1.35rem;font-weight:700;line-height:1.5}.stat em{font-style:normal;font-size:.78rem;color:var(--mut)}
+.macro{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.macro svg{width:150px;height:150px;flex:none}
+.leg{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:.92rem;flex:1;min-width:180px}
+.leg li{display:flex;align-items:center;gap:10px}
+.leg i{width:12px;height:12px;border-radius:3px;flex:none}
+.leg b{margin-inline-start:auto;font-variant-numeric:tabular-nums}
+.meals{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:16px}
+.meals div{border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:.85rem;color:var(--mut)}
+.meals b{display:block;color:var(--fg);font-size:1.05rem}
+.week{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.week li{display:grid;grid-template-columns:80px 1fr;gap:12px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:var(--bg)}
+.week strong{color:var(--gold)}.week span{color:var(--mut);font-size:.9rem}
+.note{font-size:.82rem;color:var(--mut);margin:12px 0 0}
+.faq details{border-top:1px solid var(--line);padding:12px 0}.faq summary{cursor:pointer;font-weight:500}.faq p{margin:8px 0 0;color:var(--mut)}
+.trust{display:flex;gap:18px;flex-wrap:wrap;color:var(--mut);font-size:.85rem;padding:0 0 24px}
+.trust span::before{content:"✓ ";color:var(--acc);font-weight:700}
+footer{border-top:1px solid var(--line);padding:20px 0 36px;color:var(--mut);font-size:.8rem}
+@media (max-width:860px){.grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="top"><div class="logo"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 20 H34 M10 12 V28 M30 12 V28 M4 16 V24 M36 16 V24"/></svg>اندام‌یار</div><span class="badge">🔒 داده‌ها فقط روی دستگاه شما</span></header>
+<h1>برنامه‌ای که <b>برای بدن شما</b> ساخته شده</h1>
+<p class="sub">مشخصات و هدف خود را وارد کنید تا کالری روزانه، نسبت ماکروها و برنامه تمرین هفتگی را ببینید. مناسب بزرگسالان سالم.</p>
+
+<main class="grid">
+<section class="panel"><h2>مشخصات شما</h2>
+<form id="f" novalidate>
+<div class="full"><label>جنسیت</label><div class="seg"><label><input type="radio" name="sex" value="m" checked><span>مرد</span></label><label><input type="radio" name="sex" value="f"><span>زن</span></label></div></div>
+<label>سن (سال)<input id="age" type="number" inputmode="numeric" value="30"></label>
+<label>قد (سانتی‌متر)<input id="h" type="number" inputmode="numeric" value="175"></label>
+<label>وزن (کیلوگرم)<input id="w" type="number" inputmode="decimal" value="78"></label>
+<label>روز تمرین در هفته<select id="days"><option value="3">۳ روز</option><option value="4" selected>۴ روز</option><option value="5">۵ روز</option></select></label>
+<label class="full">سطح فعالیت روزانه<select id="act"><option value="1.2">کم‌تحرک (کار پشت میز)</option><option value="1.375" selected>کمی فعال</option><option value="1.55">فعال</option><option value="1.725">بسیار فعال</option></select></label>
+<div class="full"><label>هدف</label><div class="seg"><label><input type="radio" name="goal" value="lose"><span>کاهش چربی</span></label><label><input type="radio" name="goal" value="keep" checked><span>حفظ وزن</span></label><label><input type="radio" name="goal" value="gain"><span>افزایش عضله</span></label></div></div>
+<button class="btn full" type="submit">محاسبه برنامه من</button>
+<p class="full" id="err" role="alert"></p>
+</form></section>
+
+<div>
+<section class="panel" aria-live="polite"><h2>نتیجه</h2>
+<div class="stats" id="stats"></div>
+<div class="macro"><svg viewBox="0 0 120 120" id="donut" role="img" aria-label="نسبت پروتئین، کربوهیدرات و چربی"></svg><ul class="leg" id="leg"></ul></div>
+<div class="meals" id="meals"></div>
+<p class="note" id="note"></p></section>
+<section class="panel"><h2>برنامه تمرین هفتگی</h2><ul class="week" id="week"></ul></section>
+</div>
+</main>
+
+<section class="panel faq"><h2>پرسش‌های متداول</h2>
+<details><summary>TDEE چیست؟</summary><p>کالری کل مصرفی روزانه است: سوخت‌وساز پایه (BMR) ضرب‌در ضریب فعالیت. با خوردن همین مقدار، وزن شما تقریباً ثابت می‌ماند.</p></details>
+<details><summary>این اعداد چقدر دقیق‌اند؟</summary><p>از فرمول میفلین-سنت جئور و ضرایب استاندارد استفاده می‌شود؛ برآوردی خوب است نه اندازه‌گیری دقیق. بعد از دو تا سه هفته با روند وزن خود تنظیمش کنید.</p></details>
+<details><summary>آیا جایگزین پزشک یا متخصص تغذیه است؟</summary><p>خیر. این ابزار آموزشی است. در صورت بیماری، بارداری یا مصرف دارو حتماً با پزشک مشورت کنید.</p></details></section>
+<div class="trust"><span>بدون ثبت‌نام</span><span>فرمول استاندارد میفلین-سنت جئور</span><span>حداقل کالری ایمن رعایت می‌شود</span></div>
+<footer>© ۲۰۲۶ اندام‌یار · نمونه طراحی · این ابزار توصیه پزشکی نیست.</footer>
+</div>
+
+<script>
+const $=id=>document.getElementById(id),fa=n=>Number(n).toLocaleString("fa-IR"),K="ay_v1";
+const S={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+const PLAN={3:[["شنبه","تمام‌بدن A: اسکات، پرس سینه، روئینگ"],["دوشنبه","تمام‌بدن B: ددلیفت رومانیایی، پرس سرشانه، بارفیکس"],["چهارشنبه","تمام‌بدن C: لانچ، شنا سوئدی، پشت‌بازو و جلوبازو"]],
+4:[["شنبه","بالاتنه: پرس سینه، روئینگ، پرس سرشانه"],["یکشنبه","پایین‌تنه: اسکات، ددلیفت رومانیایی، ساق"],["سه‌شنبه","بالاتنه: بارفیکس، دیپ، جلو و پشت بازو"],["چهارشنبه","پایین‌تنه: لانچ، هیپ‌تراست، کرانچ"]],
+5:[["شنبه","هل‌دادن: سینه، شانه، پشت‌بازو"],["یکشنبه","کشیدن: پشت، جلوبازو، شانه خلفی"],["دوشنبه","پا: اسکات، ددلیفت رومانیایی، ساق"],["سه‌شنبه","بالاتنه سبک و هوازی ۲۰ دقیقه"],["پنج‌شنبه","تمام‌بدن و کور (پلانک، کرانچ)"]]};
+const CARDIO={lose:"هوازی: ۲ تا ۳ جلسه پیاده‌روی تند ۳۰ تا ۴۵ دقیقه‌ای",keep:"هوازی: ۱ تا ۲ جلسه ۳۰ دقیقه‌ای دلخواه",gain:"هوازی: ۱ جلسه سبک ۲۰ دقیقه‌ای برای سلامت قلب"};
+function val(){return{sex:document.querySelector("[name=sex]:checked").value,goal:document.querySelector("[name=goal]:checked").value,age:+$("age").value,h:+$("h").value,w:+$("w").value,act:+$("act").value,days:$("days").value}}
+function compute(v){const bmr=10*v.w+6.25*v.h-5*v.age+(v.sex==="m"?5:-161),tdee=bmr*v.act,adj={lose:-450,keep:0,gain:300}[v.goal];
+ const floor=v.sex==="m"?1500:1200;let kcal=tdee+adj,floored=false;if(kcal<floor){kcal=floor;floored=true}
+ const protein=Math.round(v.w*(v.goal==="lose"?2:1.8)),fat=Math.round(kcal*.25/9),carb=Math.max(0,Math.round((kcal-protein*4-fat*9)/4)),bmi=v.w/Math.pow(v.h/100,2);
+ return{bmr:Math.round(bmr),tdee:Math.round(tdee),kcal:Math.round(kcal),floored,protein,fat,carb,bmi,water:v.w*35/1000}}
+function bmiCat(b){return b<18.5?"کم‌وزن":b<25?"طبیعی":b<30?"اضافه‌وزن":"چاقی"}
+function render(v){const r=compute(v);
+ $("stats").innerHTML=[["کالری هدف روزانه",fa(r.kcal)+" کیلوکالری","TDEE: "+fa(r.tdee)],["سوخت‌وساز پایه (BMR)",fa(r.bmr),"کیلوکالری"],["شاخص توده بدنی",fa(r.bmi.toFixed(1)),bmiCat(r.bmi)],["آب پیشنهادی",fa(r.water.toFixed(1))+" لیتر","در روز"]].map(s=>`<div class="stat"><small>${s[0]}</small><b>${s[1]}</b><em>${s[2]}</em></div>`).join("");
+ const parts=[["پروتئین",r.protein*4,r.protein,"var(--p)"],["کربوهیدرات",r.carb*4,r.carb,"var(--c)"],["چربی",r.fat*9,r.fat,"var(--f)"]],tot=parts.reduce((a,p)=>a+p[1],0)||1,C=2*Math.PI*46;let off=0;
+ $("donut").innerHTML=`<circle cx="60" cy="60" r="46" fill="none" stroke="var(--line)" stroke-width="14"/>`+parts.map(p=>{const len=p[1]/tot*C,s=`<circle cx="60" cy="60" r="46" fill="none" stroke="${p[3]}" stroke-width="14" stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 60 60)"/>`;off+=len;return s}).join("")+`<text x="60" y="58" text-anchor="middle" font-size="15" font-weight="700" fill="var(--fg)">${fa(r.kcal)}</text><text x="60" y="73" text-anchor="middle" font-size="8" fill="var(--mut)">کیلوکالری</text>`;
+ $("leg").innerHTML=parts.map(p=>`<li><i style="background:${p[3]}"></i>${p[0]}<b>${fa(p[2])} گرم · ٪${fa(Math.round(p[1]/tot*100))}</b></li>`).join("");
+ $("meals").innerHTML=[["صبحانه",.25],["ناهار",.35],["میان‌وعده",.15],["شام",.25]].map(m=>`<div>${m[0]}<b>${fa(Math.round(r.kcal*m[1]))}</b>کیلوکالری</div>`).join("");
+ $("note").textContent=r.floored?"کالری هدف به حداقل ایمن رسانده شد. از رژیم‌های کم‌کالری شدید بدون نظر متخصص پرهیز کنید.":"کاهش یا افزایش وزن ایمن حدود ۰٫۲۵ تا ۰٫۵ کیلوگرم در هفته است. بعد از ۲ تا ۳ هفته عدد را با روند وزنتان تنظیم کنید.";
+ $("week").innerHTML=PLAN[v.days].map(d=>`<li><strong>${d[0]}</strong><span>${d[1]}</span></li>`).join("")+`<li><strong>همه هفته</strong><span>${CARDIO[v.goal]}؛ حداقل یک روز استراحت کامل</span></li>`}
+$("f").addEventListener("submit",e=>{e.preventDefault();const v=val(),er=$("err");er.textContent="";
+ if(!(v.age>=18&&v.age<=90))return er.textContent="این ابزار برای سنین ۱۸ تا ۹۰ سال طراحی شده است.";
+ if(!(v.h>=120&&v.h<=230))return er.textContent="قد را بین ۱۲۰ تا ۲۳۰ سانتی‌متر وارد کنید.";
+ if(!(v.w>=30&&v.w<=250))return er.textContent="وزن را بین ۳۰ تا ۲۵۰ کیلوگرم وارد کنید.";
+ S.set(K,v);render(v)});
+const sv=S.get(K,null);if(sv){document.querySelector(`[name=sex][value=${sv.sex}]`).checked=true;document.querySelector(`[name=goal][value=${sv.goal}]`).checked=true;
+ ["age","h","w","act","days"].forEach(k=>{if(sv[k]!==undefined)$(k).value=sv[k]})}
+render(val());
+</script>
+</body>
+</html>

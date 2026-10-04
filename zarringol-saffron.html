@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>زرین‌گل — زعفران ممتاز دستچین</title>
+<meta name="description" content="زعفران نگین و سرگل، برداشت سحرگاهی و بسته‌بندی دستی. نمونه طراحی برای یک برند لوکس زعفران.">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200;300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#faf3e6;--fg:#2a1216;--mut:#7a6258;--line:#e6d5bb;--acc:#9c1b2f;--gold:#b5802a;--card:#fffaf0;--deep:#3a0f18;--dfg:#f8ecd2;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#140709;--fg:#f6e9d0;--mut:#b09886;--line:#34171c;--acc:#e0485d;--gold:#e3ad4e;--card:#1c0b0e;--deep:#0d0405}}
+:root[data-theme="dark"]{--bg:#140709;--fg:#f6e9d0;--mut:#b09886;--line:#34171c;--acc:#e0485d;--gold:#e3ad4e;--card:#1c0b0e;--deep:#0d0405}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 17px/2 Vazirmatn,Tahoma,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.w{max-width:1160px;margin:0 auto;padding:0 clamp(20px,5vw,44px)}
+h1,h2,h3{font-weight:500;margin:0;line-height:1.35}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0;gap:16px}
+.logo{font-size:1.7rem;font-weight:700;color:var(--gold);display:flex;align-items:center;gap:10px}
+.logo svg{width:30px;height:30px}
+nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0;font-size:.92rem;color:var(--mut)}
+.btn{display:inline-block;padding:11px 30px;font-size:.95rem;font-weight:500;border:1px solid var(--gold);color:var(--gold);border-radius:2px;transition:.3s}
+.btn:hover,.btn.f{background:var(--gold);color:var(--deep)}.btn.f:hover{background:transparent;color:var(--gold)}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:48px 0 100px}
+.eyebrow{font-size:.85rem;letter-spacing:.06em;color:var(--gold);font-weight:500}
+h1{font-size:clamp(2.6rem,6.6vw,5rem);font-weight:300;line-height:1.2;margin:14px 0 20px}
+h1 b{font-weight:700;color:var(--acc)}
+.lead{color:var(--mut);max-width:30em;margin:0 0 30px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.flower{width:100%;max-width:440px;margin:0 auto;display:block;filter:drop-shadow(0 26px 40px rgba(156,27,47,.3))}
+section{padding:92px 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(1.9rem,4vw,2.9rem);font-weight:300;margin:10px 0 44px}
+.grades{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.grade{background:var(--card);border:1px solid var(--line);padding:34px 30px;position:relative;transition:.35s}
+.grade:hover{border-color:var(--gold);transform:translateY(-4px)}
+.grade .no{position:absolute;inset-inline-end:24px;top:18px;font-size:3.4rem;font-weight:200;color:var(--line);line-height:1}
+.grade small{color:var(--acc);font-weight:500;font-size:.85rem}
+.grade h3{font-size:1.9rem;margin:6px 0 10px}
+.grade p{margin:0 0 20px;color:var(--mut);font-size:.95rem}
+.grade dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:0;border-top:1px solid var(--line);padding-top:16px;font-size:.88rem}
+.grade dt{color:var(--mut)}.grade dd{margin:0;font-weight:500}
+.deep{background:var(--deep);color:var(--dfg);border-top:0}
+.deep .eyebrow{color:#e3ad4e}
+.process{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;border-top:1px solid rgba(248,236,210,.18)}
+.pstep{padding:30px 0;padding-inline-end:26px;border-bottom:1px solid rgba(248,236,210,.18)}
+.pstep span{font-size:2.6rem;font-weight:200;color:#e3ad4e;line-height:1}
+.pstep h3{font-size:1.35rem;margin:10px 0 6px}
+.pstep p{margin:0;opacity:.78;font-size:.93rem}
+.nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:30px;text-align:center}
+.nums b{display:block;font-size:clamp(2.4rem,5vw,3.8rem);font-weight:300;color:var(--acc);line-height:1.2}
+.nums span{font-size:.88rem;color:var(--mut)}
+.order{text-align:center}
+.order p{color:var(--mut);max-width:32em;margin:0 auto 30px}
+footer{padding:28px 0 44px;color:var(--mut);font-size:.82rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--line)}
+@media (max-width:820px){nav ul{display:none}.hero{grid-template-columns:1fr;padding-top:12px}.flower{max-width:300px;order:-1}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<nav>
+<a class="logo" href="#"><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 4 L24 18 L36 20 L24 22 L20 36 L16 22 L4 20 L16 18Z"/></svg>زرین‌گل</a>
+<ul><li><a href="#grades">مجموعه‌ها</a></li><li><a href="#process">از مزرعه تا دست شما</a></li><li><a href="#order">سفارش</a></li></ul>
+<a class="btn" href="#order">سفارش خصوصی</a>
+</nav>
+<header class="hero">
+<div>
+<div class="eyebrow">قائنات · خراسان جنوبی</div>
+<h1>زعفرانی که <b>سحرگاه</b> چیده می‌شود</h1>
+<p class="lead">هر رشته را پیش از طلوع آفتاب با دست می‌چینیم و همان روز جدا و خشک می‌کنیم. بدون واسطه، بدون مخلوط‌کردن، با رنگ و عطری که تا آخرین رشته می‌ماند.</p>
+<div class="cta"><a class="btn f" href="#grades">دیدن مجموعه‌ها</a><a class="btn" href="#process">داستان برداشت</a></div>
+</div>
+<svg class="flower" viewBox="0 0 400 400" role="img" aria-label="گل زعفران با سه کلاله قرمز">
+<defs>
+<radialGradient id="p" cx=".5" cy="1" r="1"><stop offset="0" stop-color="#6b3fa0"/><stop offset="1" stop-color="#b79ae0"/></radialGradient>
+<linearGradient id="s" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#7d1020"/><stop offset="1" stop-color="#e0485d"/></linearGradient>
+</defs>
+<g transform="translate(200 250)">
+<ellipse rx="44" ry="120" cy="-110" fill="url(#p)" opacity=".9" transform="rotate(-62)"/>
+<ellipse rx="44" ry="120" cy="-110" fill="url(#p)" opacity=".9" transform="rotate(62)"/>
+<ellipse rx="44" ry="124" cy="-112" fill="url(#p)" opacity=".85" transform="rotate(-30)"/>
+<ellipse rx="44" ry="124" cy="-112" fill="url(#p)" opacity=".85" transform="rotate(30)"/>
+<ellipse rx="46" ry="130" cy="-116" fill="url(#p)"/>
+<g fill="none" stroke="#fff" stroke-opacity=".28" stroke-width="1.2"><path d="M0 -20 V-210"/><path d="M0 -20 L-100 -170" /><path d="M0 -20 L100 -170"/></g>
+<circle r="14" cy="-10" fill="#e3ad4e"/>
+<g stroke="url(#s)" stroke-width="6" stroke-linecap="round" fill="none"><path d="M-4 -10 Q-34 -80 -52 -160"/><path d="M0 -10 Q2 -90 4 -190"/><path d="M4 -10 Q38 -76 58 -154"/></g>
+<g fill="#e0485d"><circle cx="-52" cy="-160" r="5"/><circle cx="4" cy="-190" r="5"/><circle cx="58" cy="-154" r="5"/></g>
+<path d="M0 0 V80" stroke="#4f6b3a" stroke-width="6" stroke-linecap="round"/>
+</g>
+</svg>
+</header>
+</div>
+
+<section id="grades"><div class="w">
+<div class="eyebrow">مجموعه‌ها</div>
+<h2>سه درجه، یک معیار</h2>
+<div class="grades">
+<article class="grade"><span class="no">۱</span><small>درجه یک</small><h3>سرگل</h3><p>فقط نوک قرمز کلاله، با بیشترین رنگ‌دهی و عطر.</p><dl><dt>قدرت رنگ</dt><dd>بالاتر از ۲۶۰</dd><dt>بسته‌بندی</dt><dd>۱ و ۲ گرمی</dd></dl></article>
+<article class="grade"><span class="no">۲</span><small>گزینه ممتاز</small><h3>نگین</h3><p>رشته‌های بلند و کامل، با قرمز یکدست و نرمی مثال‌زدنی.</p><dl><dt>قدرت رنگ</dt><dd>بالاتر از ۲۴۰</dd><dt>بسته‌بندی</dt><dd>۲ و ۵ گرمی</dd></dl></article>
+<article class="grade"><span class="no">۳</span><small>نسخه هدیه</small><h3>دستچین سلطنتی</h3><p>گزینش‌شده رشته‌به‌رشته، در جعبه چوبی با شماره و گواهی مزرعه.</p><dl><dt>قدرت رنگ</dt><dd>بالاتر از ۲۷۰</dd><dt>بسته‌بندی</dt><dd>۵ و ۱۰ گرمی</dd></dl></article>
+</div></div></section>
+
+<section id="process" class="deep"><div class="w">
+<div class="eyebrow">از مزرعه تا دست شما</div>
+<h2>سه ساعت پس از طلوع، کار تمام است</h2>
+<div class="process">
+<div class="pstep"><span>۰۱</span><h3>برداشت سحرگاهی</h3><p>گل‌ها پیش از باز شدن کامل و قبل از تابش خورشید چیده می‌شوند تا عطر در گل بماند.</p></div>
+<div class="pstep"><span>۰۲</span><h3>جداسازی دستی</h3><p>هر کلاله با انگشت جدا می‌شود. برای یک کیلوگرم، حدود صد و پنجاه هزار گل لازم است.</p></div>
+<div class="pstep"><span>۰۳</span><h3>خشک‌کردن آرام</h3><p>در سایه و با حرارت ملایم، تا رنگ و عطر کامل بماند و رشته‌ها نشکنند.</p></div>
+</div></div></section>
+
+<section><div class="w"><div class="nums">
+<div><b>۱۵۰ هزار</b><span>گل برای هر کیلوگرم</span></div><div><b>۴۰</b><span>خانواده کشاورز همکار</span></div><div><b>۱۰۰٪</b><span>تک‌مزرعه و ردیابی‌پذیر</span></div><div><b>۲۴</b><span>ساعت تا ارسال سفارش</span></div>
+</div></div></section>
+
+<section id="order" class="order"><div class="w">
+<div class="eyebrow">سفارش خصوصی</div>
+<h2>هدیه‌ای که فقط یک بار فراموش‌نشدنی است</h2>
+<p>برای سفارش سازمانی، هدیه‌های ویژه و ارسال به خارج از کشور با ما در ارتباط باشید. پاسخ‌گویی ظرف یک روز کاری انجام می‌شود.</p>
+<a class="btn f" href="mailto:order@zarrin.example">ثبت سفارش خصوصی</a>
+</div></section>
+
+<div class="w"><footer><span>© ۲۰۲۶ زرین‌گل</span><span>نمونه طراحی · برند فرضی</span></footer></div>
+</body>
+</html>
